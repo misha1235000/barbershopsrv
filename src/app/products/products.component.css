@@ -14,15 +14,46 @@
     opacity: 1 !important;
     padding:0px;
     margin:20px;
-    width:240px;
-    height:320px;
+    width:190px;
+    height:270px;
+    position:relative;
+    right:50px;
 }
 
 .productImage {
-    max-height: 190px;
+    max-height: 140px;
     width:100%;
 }
 
 .imageBackground {
     background-color: #E0E0E0;
+}
+
+.btnLeft {
+    position:absolute;
+    left:10px;
+    top:265px;
+    color:rgba(255, 77, 77, 1);
+    cursor:pointer;
+}
+
+.btnRight {
+    position:absolute;
+    right:10px;
+    top:265px;
+    color:rgba(255, 77, 77, 1);
+    cursor:pointer;
+}
+
+.textCard {
+    padding: 15px;
+}
+
+.productDesc {
+    font-size:15px;
+    color:#9A9A9A;
+}
+
+.productPrice {
+    font-size: 18px;
 }

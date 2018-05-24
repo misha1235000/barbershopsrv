@@ -6,8 +6,10 @@ body {
     background-color: rgba(0,0,0,0.04);
     background-image: url("http://www.zastavki.com/pictures/originals/2013/Cities__038905_.jpg");
     background-repeat: no-repeat;
+    overflow-y: hidden;
 }
 
 .mat-dialog-container {
     padding: 0 !important;
 }
+

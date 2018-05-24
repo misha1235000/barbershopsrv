@@ -3,8 +3,9 @@
     text-align:center;
     background-color: rgba(134, 82, 58, 1);
     height:600px;
+    overflow-y: auto;
     border: 15px solid black;
-    background-image: url("https://static.wixstatic.com/media/214ec6_8379353f77d07edee73694a5c0739b96.png/v1/fill/w_860,h_594,al_c,usm_0.66_1.00_0.01/214ec6_8379353f77d07edee73694a5c0739b96.png");
-    background-position: 50px 0px; 
+    background-image: url("http://www.technocrazed.com/wp-content/uploads/2015/12/Wood-Wallpaper-Background-9.jpg");
+    background-position: 70px -80px; 
     opacity: 0.95;
 }
