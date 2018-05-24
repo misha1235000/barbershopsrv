@@ -1,0 +1,55 @@
+mat-card {
+    height: 88vh;
+    background-color:rgba(0,0,0,0.02);
+}
+
+mat-toolbar {
+    background-color: #5C6BC0;
+}
+
+toolbar-row {
+    text-align: center;
+}
+
+.toolbar-icon {
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.person-avatar {
+    position: absolute;
+    left: 40%;
+    top: 50px;
+    width:70px;
+    height:70px;
+    border-radius: 100%;
+    background-color:#DADADA;
+    /*position:relative;
+    left:80px;*/
+}
+
+.person-icon {
+    font-size:35px;
+    color: #BABABA;
+    position:absolute;
+    left: 18px;
+    top: 15px;
+}
+
+.person-content {
+    text-align: center;
+    position:relative;
+    right:5px;
+    top:15px;
+}
+
+.buttons-class {
+    text-align: left;
+    position: relative;
+    left:50px;
+    top:100px;
+}

@@ -1,0 +1,14 @@
+ <div class="main-card"> 
+  <mat-card class="cards">
+    <mat-toolbar style="background-color:#EAEAEA">
+      <mat-toolbar-row>
+        <span class="toolbar-text">רשימת תורים</span>
+        <span class="toolbar-spacer"></span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div style="padding: 10px 50px 0 50px;">
+   <app-appointment-list></app-appointment-list>
+    </div>
+   <button mat-fab class="fab-class" matTooltip="קבע תור חדש" matTooltipPosition="above" (click)="openDialog()"><mat-icon>add</mat-icon></button>
+  </mat-card>
+</div>

@@ -1,0 +1,25 @@
+.cards {
+    margin:50px 100px 0 100px;
+    flex:100%;
+    height: 700px;
+    padding:0 !important;
+}
+
+.main-card {
+    display: flex;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.header-text {
+    text-align:right;
+    font-size: 22px;
+}
+
+.fab-class {
+    position:absolute;
+    bottom : -25px;
+    left: 50px;
+}
