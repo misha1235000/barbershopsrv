@@ -1,70 +1,38 @@
-<mat-list>
-  <mat-list-item *ngFor="let appointment of appointments">
-    {{appointment.date}}
-  </mat-list-item>
-</mat-list>
+
 <div class="table-container">
-<table mat-table #table [dataSource]="appointmentSource">
+  <mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <img style="vertical-align:middle; position:relative; left:20px;" aria-hidden src="http://www.pngmart.com/files/5/Haircut-PNG-Transparent-Image.png" height="25" />
+      <mat-panel-title>
+        תספורת רגילהה לגבר
+      </mat-panel-title>
+      <mat-panel-description>
+        20 דקות - 30 ש"ח
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
+    <mat-form-field>
+      <input matInput placeholder="First name">
+    </mat-form-field>
 
-    <!-- Date Column -->
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef style="width: 10%;"> תאריך </th>
-      <td mat-cell *matCellDef="let appointment"> {{appointment.date}} </td>
-    </ng-container>
-
-<!--
-    <ng-container matColumnDef="date">
-      <th mat-header-cell *matHeaderCellDef> תאריך </th>
-      <td mat-cell *matCellDef="let appointment"> {{appointment.date}} </td>
-    </ng-container>-->
-
-    <!-- Day Column -->
-    <ng-container matColumnDef="day">
-      <th mat-header-cell *matHeaderCellDef> יום </th>
-      <td mat-cell *matCellDef="let appointment"> שלישי </td>
-    </ng-container>
-
-    <!-- Time Column -->
-    <ng-container matColumnDef="time">
-      <th mat-header-cell *matHeaderCellDef> שעה </th>
-      <td mat-cell *matCellDef="let appointment"> 07:30 </td>
-    </ng-container>
-
-    <!-- Price Column -->
-    <ng-container matColumnDef="price">
-      <th mat-header-cell *matHeaderCellDef> מחיר </th>
-      <td mat-cell *matCellDef="let appointment"> {{appointment.totalprice}} שח </td>
-    </ng-container>
-
-    <!-- Duration Column -->
-    <ng-container matColumnDef="duration">
-      <th mat-header-cell *matHeaderCellDef> משך הטיפול </th>
-      <td mat-cell *matCellDef="let appointment"> {{appointment.duration}} דקות </td>
-    </ng-container>
-
-    <!-- Products Column -->
-    <ng-container matColumnDef="products">
-      <th mat-header-cell *matHeaderCellDef> סוגי הטיפול </th>
-      <td mat-cell *matCellDef="let appointment"> {{appointment.products}} </td>
-    </ng-container>
-
-    <!-- Edit Column -->
-    <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef> </th>
-      <td mat-cell *matCellDef="let appointment" style="text-align: left !important;"><!-- <button mat-icon-button color="primary" style="position:relative;  right: 70px;" matTooltip="ערוך את התור" matTooltipPosition="above"><mat-icon>edit</mat-icon></button>--> </td>
-    </ng-container>
-
-    <!-- Delete Column -->
-    <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef> </th>
-      <td mat-cell *matCellDef="let appointment"> <button mat-icon-button color="warn" style="float:left;" matTooltip="מחק את התור" matTooltipPosition="above"><mat-icon>delete</mat-icon></button> </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+    <mat-form-field>
+      <input matInput placeholder="Age">
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+       <img style="vertical-align:middle; position:relative; left:20px;" aria-hidden src="http://www.pngmart.com/files/5/Haircut-PNG-Transparent.png" height="25" width="25" />
+      <mat-panel-title>
+        תספורת רגילה לאישה
+      </mat-panel-title>
+      <mat-panel-description>
+        40 דקות - 90 ש"ח
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>
 
 </div>

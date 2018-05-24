@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
          MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule, MatInputModule,
-         MatDatepickerModule, MatNativeDateModule, MatSelectModule } from '@angular/material';
+         MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatExpansionModule, MatDividerModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'appointments', component: AppointmentComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -57,12 +58,14 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
     MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule,
-    MatDatepickerModule, MatNativeDateModule, MatInputModule, ReactiveFormsModule, MatSelectModule
+    MatDatepickerModule, MatNativeDateModule, MatInputModule, ReactiveFormsModule, MatSelectModule,
+    MatExpansionModule, MatDividerModule
   ],
   exports: [
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
     MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule,
-    MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModule
+    MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModule, MatExpansionModule,
+    MatDividerModule
   ],
   entryComponents: [AddAppointmentComponent],
   providers: [AppointmentService],

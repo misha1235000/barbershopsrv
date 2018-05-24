@@ -12,4 +12,8 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  InfoClicked(event) {
+    event.target.classList.remove('active');
+  }
+
 }

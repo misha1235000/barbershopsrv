@@ -10,17 +10,14 @@
 .main-btns {
     font-family: Arial;
     font-size: 22px;
-    border: 2px solid white;
     margin: 8px;
     position: relative;
-    top: 120px;
+    top: 80px;
     padding: 15px 24px 15px 24px;
-    transition:0.3s;
 }
 
 .main-btns:hover {
     transition:0.4s;
     cursor: pointer;
-    border: 2px solid rgba(204, 77, 77, 1);
     background-color: rgba(0,0,0,0.4);
 }
