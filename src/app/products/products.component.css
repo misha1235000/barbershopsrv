@@ -11,8 +11,18 @@
 }
 
 .productCard {
-    margin:10px;
-    width:135px;
-    height:135px;
-    border: 3px solid rgba(204, 77, 77, 1);
+    opacity: 1 !important;
+    padding:0px;
+    margin:20px;
+    width:240px;
+    height:320px;
+}
+
+.productImage {
+    max-height: 190px;
+    width:100%;
+}
+
+.imageBackground {
+    background-color: #E0E0E0;
 }
