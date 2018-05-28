@@ -10,8 +10,8 @@ export class AppointmentService {
 
   constructor(private http: Http){}
   
-  getAll(): Observable<any> {
-    return this.http.get(this.serverUrl + '/appointments')
+  get(): Observable<any> {
+    return this.http.get(this.serverUrl + '/appointment')
            .map((res: Response) => {
               return res.json();
            }).catch((error) => {

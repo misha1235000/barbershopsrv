@@ -15,6 +15,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AppointmentListComponent } from './appointment/appointment-list/appointment-list.component';
 import { AppointmentService } from './appointment/appointment.service';
+import { ProductService } from './products/product.service';
 import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
 import { MaincontentComponent } from './maincontent/maincontent.component';
 import { ProductsComponent } from './products/products.component';
@@ -68,7 +69,7 @@ const appRoutes: Routes = [
     MatDividerModule
   ],
   entryComponents: [AddAppointmentComponent],
-  providers: [AppointmentService],
+  providers: [AppointmentService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
