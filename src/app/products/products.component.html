@@ -1,8 +1,61 @@
-<div class="productsText" style="position:relative; right:10px;">
+<div class="productsText" style="position:relative; right:-2px;">
   <h1 class="titleText">המוצרים שלנו</h1>
   <div style="display:flex; flex-wrap: wrap; margin-right:17px; margin-top:80px;">
-    <div class="btnLeft"><mat-icon style="font-size:50px">arrow_back</mat-icon></div>
-    <div class="btnRight"><mat-icon style="font-size:50px">arrow_forward</mat-icon></div>
+      <mat-card class="productCard" *ngFor="let product of productsSource">
+        <div class="imageBackground">
+          <img class="productImage" [src]="product.image" >
+        </div>
+        <div class="textCard">
+          <div class="productPrice">{{ product.price }} ש"ח</div>
+          <div class="productDesc">{{ product.desc }}</div>
+          <button mat-icon-button color="primary" style="position:absolute; right: 10px; bottom: 10px;"><mat-icon>add_shopping_cart</mat-icon></button>
+          <button mat-icon-button style="position:absolute; right: 55px; bottom: 10px;"><mat-icon style="color: #BABABA">remove_red_eye</mat-icon></button>
+        </div>
+      </mat-card>
+      <mat-card class="productCard" *ngFor="let product of productsSource">
+        <div class="imageBackground">
+          <img class="productImage" [src]="product.image" >
+        </div>
+        <div class="textCard">
+          <div class="productPrice">{{ product.price }} ש"ח</div>
+          <div class="productDesc">{{ product.desc }}</div>
+          <button mat-icon-button color="primary" style="position:absolute; right: 10px; bottom: 10px;"><mat-icon>add_shopping_cart</mat-icon></button>
+          <button mat-icon-button style="position:absolute; right: 55px; bottom: 10px;"><mat-icon style="color: #BABABA">remove_red_eye</mat-icon></button>
+        </div>
+      </mat-card>
+      <mat-card class="productCard" *ngFor="let product of productsSource">
+        <div class="imageBackground">
+          <img class="productImage" [src]="product.image" >
+        </div>
+        <div class="textCard">
+          <div class="productPrice">{{ product.price }} ש"ח</div>
+          <div class="productDesc">{{ product.desc }}</div>
+          <button mat-icon-button color="primary" style="position:absolute; right: 10px; bottom: 10px;"><mat-icon>add_shopping_cart</mat-icon></button>
+          <button mat-icon-button style="position:absolute; right: 55px; bottom: 10px;"><mat-icon style="color: #BABABA">remove_red_eye</mat-icon></button>
+        </div>
+      </mat-card>
+      <mat-card class="productCard" *ngFor="let product of productsSource">
+        <div class="imageBackground">
+          <img class="productImage" [src]="product.image" >
+        </div>
+        <div class="textCard">
+          <div class="productPrice">{{ product.price }} ש"ח</div>
+          <div class="productDesc">{{ product.desc }}</div>
+          <button mat-icon-button color="primary" style="position:absolute; right: 10px; bottom: 10px;"><mat-icon>add_shopping_cart</mat-icon></button>
+          <button mat-icon-button style="position:absolute; right: 55px; bottom: 10px;"><mat-icon style="color: #BABABA">remove_red_eye</mat-icon></button>
+        </div>
+      </mat-card>
+      <mat-card class="productCard" *ngFor="let product of productsSource">
+        <div class="imageBackground">
+          <img class="productImage" [src]="product.image" >
+        </div>
+        <div class="textCard">
+          <div class="productPrice">{{ product.price }} ש"ח</div>
+          <div class="productDesc">{{ product.desc }}</div>
+          <button mat-icon-button color="primary" style="position:absolute; right: 10px; bottom: 10px;"><mat-icon>add_shopping_cart</mat-icon></button>
+          <button mat-icon-button style="position:absolute; right: 55px; bottom: 10px;"><mat-icon style="color: #BABABA">remove_red_eye</mat-icon></button>
+        </div>
+      </mat-card>
       <mat-card class="productCard" *ngFor="let product of productsSource">
         <div class="imageBackground">
           <img class="productImage" [src]="product.image" >
@@ -16,3 +69,4 @@
       </mat-card>
   </div>
 </div>
+

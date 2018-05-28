@@ -1,6 +1,11 @@
  <div class="main-card"> 
-  <div style="padding: 10px 50px 0 50px; width:100%; font-family:arial;">
-    <h1 style="color: white; text-align: right; border-bottom:solid 1px rgba(0,0,0,0.2); padding:5px;">בחר טיפולים</h1>
+  <div class="paddingDiv">
+    <div class="stepperDiv">
+      <h1 class="typeText">בחר טיפולים</h1>
+      <h1 class="dateText">בחר מועד</h1>
+      <h1 class="verifyText">הזדהות</h1>
+      <h1 class="finishText">סיים</h1>
+    </div>
     <app-appointment-list></app-appointment-list>
   </div>
    <button mat-fab class="fab-class" matTooltip="קבע תור חדש" matTooltipPosition="above" (click)="openDialog()"><mat-icon>add</mat-icon></button>
