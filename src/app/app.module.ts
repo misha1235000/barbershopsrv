@@ -21,6 +21,7 @@ import { MaincontentComponent } from './maincontent/maincontent.component';
 import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { ImageProductComponent } from './products/image-product/image-product.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     MaincontentComponent,
     ProductsComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    ImageProductComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +70,7 @@ const appRoutes: Routes = [
     MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModule, MatExpansionModule,
     MatDividerModule
   ],
-  entryComponents: [AddAppointmentComponent],
+  entryComponents: [AddAppointmentComponent, ImageProductComponent],
   providers: [AppointmentService, ProductService],
   bootstrap: [AppComponent]
 })
