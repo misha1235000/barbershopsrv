@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
          MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule, MatInputModule,
-         MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatExpansionModule, MatDividerModule } from '@angular/material';
+         MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatExpansionModule, MatDividerModule, MatCheckboxModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -14,7 +14,7 @@ import { AppointmentsListComponent } from './appointments/appointments-list/appo
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AppointmentListComponent } from './appointment/appointment-list/appointment-list.component';
-import { AppointmentService } from './appointment/appointment.service';
+import { AppointmentTypeService } from './appointment/appointment.service';
 import { ProductService } from './products/product.service';
 import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
 import { MaincontentComponent } from './maincontent/maincontent.component';
@@ -62,16 +62,16 @@ const appRoutes: Routes = [
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
     MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule,
     MatDatepickerModule, MatNativeDateModule, MatInputModule, ReactiveFormsModule, MatSelectModule,
-    MatExpansionModule, MatDividerModule
+    MatExpansionModule, MatDividerModule, MatCheckboxModule
   ],
   exports: [
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
     MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule,
     MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModule, MatExpansionModule,
-    MatDividerModule
+    MatDividerModule, MatCheckboxModule
   ],
   entryComponents: [AddAppointmentComponent, ImageProductComponent],
-  providers: [AppointmentService, ProductService],
+  providers: [AppointmentTypeService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

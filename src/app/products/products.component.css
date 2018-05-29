@@ -26,6 +26,7 @@
 .productImage {
     max-height: 120px;
     width:100%;
+    cursor: pointer;
 }
 
 .imageBackground {
@@ -38,14 +39,26 @@
 }
 
 .productDesc {
-    font-size:15px;
+    font-size: 14px;
     color:#9A9A9A;
 }
 
 .productPrice {
-    font-size: 18px;
+    font-size: 17px;
 }
 
-.filter-field {
+.viewBtn {
+    position:absolute;
+    right: 30px;
+    bottom: 0;
+}
 
+.buyBtn {
+    position:absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.buyIcon {
+    font-size: 18px;
 }

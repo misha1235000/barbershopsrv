@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppointmentService } from '../appointment.service';
+import { AppointmentTypeService } from '../appointment.service';
 
 export interface Appointment {
   date: String;
@@ -10,15 +10,6 @@ export interface Appointment {
   products: number[];
 }
 
-const APPOINTMENT_DATA: Appointment[] = [
-  /*
-  {'date': '15/05/2018', 'day': 'שלישי' ,'time':'15:30', 'price':130, 'duration':60, 'products': [5,6]}, 
-  {'date': '15/05/2018', 'day': 'שלישי' ,'time':'16:15', 'price':80, 'duration':30, 'products': [5,2]}, 
-  {'date': '15/05/2018', 'day': 'שלישי' ,'time':'18:20', 'price':180, 'duration':90, 'products': [2,3]}, 
-  {'date': '16/05/2018', 'day': 'רביעי' ,'time':'09:30', 'price':50, 'duration':20, 'products': [5,9,1]},
-  */ 
-];
-
 
 @Component({
   selector: 'app-appointment-list',
@@ -26,16 +17,35 @@ const APPOINTMENT_DATA: Appointment[] = [
   styleUrls: ['./appointment-list.component.css']
 })
 export class AppointmentListComponent implements OnInit {
-  displayedColumns = ['date', 'day', 'time', 'price', 'duration', 'products', 'edit', 'delete'];
-  appointmentSource = [];
-  constructor(private appointmentService: AppointmentService) { }
+  appointmentTypes = [];
+  checkedTypes = [];
+  
+  constructor(private appointmentService: AppointmentTypeService) { }
 
   ngOnInit() {
-    this.appointmentService.get().subscribe((appointments) => {
-      this.appointmentSource = appointments;
+    this.appointmentService.get().subscribe((appointmentTypes) => {
+      appointmentTypes.forEach(type => {
+        type.checked = false;
+      });
+
+      this.appointmentTypes = appointmentTypes;
     }, (err) => {
       console.log(err);
     });
+  }
+
+  handleTypeList(type) {
+    let isFound: Boolean = false;
+
+    for (let index = 0; index < this.checkedTypes.length; index++) {
+      if (this.checkedTypes[index] === type) {
+        this.checkedTypes.splice(index, 1);
+        isFound = true;
+        return;
+      }
+    }
+
+    this.checkedTypes.push(type);
   }
 
 }

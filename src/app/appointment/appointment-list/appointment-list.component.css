@@ -2,6 +2,29 @@ mat-panel-title {
     width:10%;
 }
 
-img {
-    width:30px;
+.avatarType {
+    position:relative;
+    left:20px;
+    top:12px;
+    width:25px;
+    height:25px;
+}
+
+.titleText {
+    height:48px;
+    position: relative;
+    top:12px;
+    right:15px;
+}
+
+.descText {
+    height:48px;
+    position:relative;
+    top:12px;
+    right:35px;
+}
+
+.typeText {
+    position:relative;
+    right:10px;
 }

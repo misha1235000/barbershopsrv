@@ -1,51 +1,22 @@
 
 <div class="table-container">
   <mat-accordion>
-  <mat-expansion-panel>
+  <mat-expansion-panel class="mainPanel" *ngFor="let type of appointmentTypes" [ngStyle]="{'background-color':type.checked ? 'white' : 'rgba(255,255,255,0.6)'}">
     <mat-expansion-panel-header>
-      <img style="vertical-align:middle; position:relative; left:20px;" aria-hidden src="http://www.pngmart.com/files/5/Haircut-PNG-Transparent-Image.png" height="25" />
-      <mat-panel-title>
-        תספורת רגילה לגבר
+      <img class="avatarType" aria-hidden [src]="type.image"/>
+      <mat-panel-title class="titleText">
+      <mat-checkbox class="checkbox" (click)="$event.stopPropagation();" color="primary" labelPosition="after" [checked]="type.checked" (change)="type.checked = !type.checked; handleTypeList(type);"></mat-checkbox>
+        <span class="typeText">
+          {{ type.title }}
+        </span>
       </mat-panel-title>
-      <mat-panel-description>
-        20 דקות - 30 ש"ח
+      <mat-panel-description class="descText">
+        {{type.duration}} דקות - {{type.price}} ש"ח
       </mat-panel-description>
     </mat-expansion-panel-header>
-
-    <mat-form-field>
-      <input matInput placeholder="First name">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Age">
-    </mat-form-field>
-  </mat-expansion-panel>
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-       <img style="vertical-align:middle; position:relative; left:20px;" aria-hidden src="http://www.pngmart.com/files/5/Haircut-PNG-Transparent.png" height="25" width="25" />
-      <mat-panel-title>
-        תספורת רגילה לאישה
-      </mat-panel-title>
-      <mat-panel-description>
-        40 דקות - 90 ש"ח
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-       <img style="vertical-align:middle; position:relative; left:20px;" aria-hidden src="https://radiancehairtransplant.com/wp-content/uploads/2017/04/beard-mustache.png" height="25" width="25" />
-      <mat-panel-title>
-        עיצוב שפם
-      </mat-panel-title>
-      <mat-panel-description>
-        20 דקות - 40 ש"ח
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+    {{type.desc}}
   </mat-expansion-panel>
   
 </mat-accordion>
-
-</div>
+</div><br>
+ בחרת {{checkedTypes.length}}

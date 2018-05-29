@@ -13,3 +13,6 @@ body {
     padding: 0 !important;
 }
 
+.mat-expansion-panel-body {
+    text-align: right;
+}
