@@ -1,5 +1,4 @@
-
-<div class="table-container">
+<div class="table-container" dir="rtl">
   <mat-accordion>
   <mat-expansion-panel class="mainPanel" *ngFor="let type of appointmentTypes" [ngStyle]="{'background-color':type.checked ? 'white' : 'rgba(255,255,255,0.6)'}">
     <mat-expansion-panel-header>
@@ -19,3 +18,5 @@
   
 </mat-accordion>
 </div><br>
+<button mat-raised-button class="fab-class" matTooltip="המשך" matTooltipPosition="above" (click)="next(checkedTypes)" [disabled]="checkedTypes.length == 0"><mat-icon>arrow_back</mat-icon></button>
+ בחרת {{checkedTypes.length}}

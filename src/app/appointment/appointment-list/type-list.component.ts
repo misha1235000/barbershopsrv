@@ -1,22 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppointmentTypeService } from '../appointment.service';
-
-export interface Appointment {
-  date: String;
-  day: String;
-  time: String;
-  price: Number;
-  duration: Number;
-  products: number[];
-}
 
 
 @Component({
-  selector: 'app-appointment-list',
-  templateUrl: './appointment-list.component.html',
-  styleUrls: ['./appointment-list.component.css']
+  selector: 'app-type-list',
+  templateUrl: './type-list.component.html',
+  styleUrls: ['./type-list.component.css']
 })
-export class AppointmentListComponent implements OnInit {
+export class TypeListComponent implements OnInit {
+  @Output() checkedTypesOutside = new EventEmitter<any>();
   appointmentTypes = [];
   checkedTypes = [];
   
@@ -46,6 +38,12 @@ export class AppointmentListComponent implements OnInit {
     }
 
     this.checkedTypes.push(type);
+  }
+
+  onCheck() {
+  }
+
+  next() {
   }
 
 }

@@ -35,9 +35,9 @@ var AppointmentListComponent = /** @class */ (function () {
     };
     AppointmentListComponent = __decorate([
         core_1.Component({
-            selector: 'app-appointment-list',
-            templateUrl: './appointment-list.component.html',
-            styleUrls: ['./appointment-list.component.css']
+            selector: 'app-type-list',
+            templateUrl: './type-list.component.html',
+            styleUrls: ['./type-list.component.css']
         }),
         __metadata("design:paramtypes", [appointment_service_1.AppointmentService])
     ], AppointmentListComponent);

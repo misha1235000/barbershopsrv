@@ -1,12 +1,24 @@
- <div class="main-card"> 
+<div class="main-card"> 
   <div class="paddingDiv">
     <div class="stepperDiv">
-      <h1 class="typeText">בחר טיפולים</h1>
+      <mat-tab-group dir="ltr" selectedIndex="4">
+        <mat-tab label="סיים" disabled="true">
+          פה סיום
+        </mat-tab>
+        <mat-tab label="הזדהות" disabled="true">
+          פה הזדהות
+        </mat-tab>
+        <mat-tab label="בחר מועד" disabled="true">
+          פה בוחרים מועד
+        </mat-tab>
+        <mat-tab label="בחר טיפולים">
+          <app-type-list></app-type-list>
+        </mat-tab>
+      </mat-tab-group>
+    <!--  <h1 class="typeText">בחר טיפולים</h1>
       <h1 class="dateText">בחר מועד</h1>
       <h1 class="verifyText">הזדהות</h1>
-      <h1 class="finishText">סיים</h1>
+      <h1 class="finishText">סיים</h1>-->
     </div>
-    <app-appointment-list></app-appointment-list>
   </div>
-   <button mat-fab class="fab-class" matTooltip="קבע תור חדש" matTooltipPosition="above" (click)="openDialog()"><mat-icon>add</mat-icon></button>
 </div>

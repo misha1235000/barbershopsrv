@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
          MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule, MatInputModule,
-         MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatExpansionModule, MatDividerModule, MatCheckboxModule } from '@angular/material';
+         MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatExpansionModule, MatDividerModule, MatCheckboxModule, MatTabsModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -13,7 +13,7 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 import { AppointmentsListComponent } from './appointments/appointments-list/appointments-list.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AppointmentComponent } from './appointment/appointment.component';
-import { AppointmentListComponent } from './appointment/appointment-list/appointment-list.component';
+import { TypeListComponent } from './appointment/appointment-list/type-list.component';
 import { AppointmentTypeService } from './appointment/appointment.service';
 import { ProductService } from './products/product.service';
 import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
@@ -43,7 +43,7 @@ const appRoutes: Routes = [
     AppointmentsListComponent,
     SidenavComponent,
     AppointmentComponent,
-    AppointmentListComponent,
+    TypeListComponent,
     AddAppointmentComponent,
     MaincontentComponent,
     ProductsComponent,
@@ -62,13 +62,13 @@ const appRoutes: Routes = [
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
     MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule,
     MatDatepickerModule, MatNativeDateModule, MatInputModule, ReactiveFormsModule, MatSelectModule,
-    MatExpansionModule, MatDividerModule, MatCheckboxModule
+    MatExpansionModule, MatDividerModule, MatCheckboxModule, MatTabsModule
   ],
   exports: [
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
     MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule,
     MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModule, MatExpansionModule,
-    MatDividerModule, MatCheckboxModule
+    MatDividerModule, MatCheckboxModule, MatTabsModule
   ],
   entryComponents: [AddAppointmentComponent, ImageProductComponent],
   providers: [AppointmentTypeService, ProductService],

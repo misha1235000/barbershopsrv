@@ -16,3 +16,28 @@ body {
 .mat-expansion-panel-body {
     text-align: right;
 }
+
+.mat-tab-label {
+    font-family:arial;
+    font-size:18px !important;
+    color:white;
+}
+
+.mat-ink-bar {
+    background-color:black !important;
+}
+
+.mat-tab-labels {
+    display: block !important;
+    text-align:right;
+}
+
+.mat-tab-body-content {
+    height: 500px !important;
+    position:relative;
+    top:30px;
+}
+
+.mat-tab-body {
+    overflow-y: hidden !important;
+}
