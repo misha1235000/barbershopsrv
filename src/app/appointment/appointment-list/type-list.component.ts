@@ -9,6 +9,7 @@ import { AppointmentTypeService } from '../appointment.service';
 })
 export class TypeListComponent implements OnInit {
   @Output() checkedTypesOutside = new EventEmitter<any>();
+  @Output() isChecked = new EventEmitter<boolean>();
   appointmentTypes = [];
   checkedTypes = [];
   
@@ -41,9 +42,11 @@ export class TypeListComponent implements OnInit {
   }
 
   onCheck() {
+    this.isChecked.emit(this.checkedTypes.length > 0 ? true : false);
   }
 
   next() {
+    this.checkedTypesOutside.emit(this.checkedTypes);
   }
 
 }

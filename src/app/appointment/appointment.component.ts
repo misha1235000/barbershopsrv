@@ -10,22 +10,22 @@ import { AddAppointmentComponent } from './add-appointment/add-appointment.compo
 export class AppointmentComponent implements OnInit {
   
   constructor(public dialog: MatDialog) { }
-  test;
+  isChecked: boolean = false;
+  isNext: boolean = false;
+  selectedTab: number = 3;
 
-  openDialog(): void {
-    let dialogRef = this.dialog.open(AddAppointmentComponent, {
-      width: '800px',
-      height: '500px',
-     // data: { name: this.name, animal: this.animal }
-      data: {test:123}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
-    });
+  onCheck(isChecked) {
+    this.isChecked = isChecked;
   }
 
+  onNext() {
+    this.isNext = true;
+    this.selectedTab = 2;
+  }
+
+  test(event) {
+    console.log("BOOM");
+  }
   ngOnInit() {
     
   }

@@ -4,7 +4,7 @@
     <mat-expansion-panel-header>
       <img class="avatarType" aria-hidden [src]="type.image"/>
       <mat-panel-title class="titleText">
-      <mat-checkbox class="checkbox" (click)="$event.stopPropagation();" color="primary" labelPosition="after" [checked]="type.checked" (change)="type.checked = !type.checked; handleTypeList(type);"></mat-checkbox>
+      <mat-checkbox class="checkbox" (click)="$event.stopPropagation();" color="primary" labelPosition="after" [checked]="type.checked" (change)="type.checked = !type.checked; handleTypeList(type); onCheck();"></mat-checkbox>
         <span class="typeText">
           {{ type.title }}
         </span>
@@ -18,5 +18,4 @@
   
 </mat-accordion>
 </div><br>
-<button mat-raised-button class="fab-class" matTooltip="המשך" matTooltipPosition="above" (click)="next(checkedTypes)" [disabled]="checkedTypes.length == 0"><mat-icon>arrow_back</mat-icon></button>
- בחרת {{checkedTypes.length}}
+<button mat-raised-button class="fab-class" matTooltip="המשך" matTooltipPosition="above" (click)="next()" [disabled]="checkedTypes.length == 0"><mat-icon>arrow_back</mat-icon></button>
