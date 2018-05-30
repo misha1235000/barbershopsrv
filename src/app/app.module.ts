@@ -22,6 +22,7 @@ import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ImageProductComponent } from './products/image-product/image-product.component';
+import { ScheduleComponent } from './appointment/schedule/schedule.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     ProductsComponent,
     PageNotFoundComponent,
     HomeComponent,
-    ImageProductComponent
+    ImageProductComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,

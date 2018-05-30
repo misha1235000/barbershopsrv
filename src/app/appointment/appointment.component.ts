@@ -23,9 +23,6 @@ export class AppointmentComponent implements OnInit {
     this.selectedTab = 2;
   }
 
-  test(event) {
-    console.log("BOOM");
-  }
   ngOnInit() {
     
   }

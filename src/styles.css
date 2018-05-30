@@ -41,3 +41,8 @@ body {
 .mat-tab-body {
     overflow-y: hidden !important;
 }
+
+.mat-tab-label-active {
+    color:black;
+    font-weight:bold;
+}
