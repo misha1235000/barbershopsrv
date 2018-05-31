@@ -1,3 +1,37 @@
-<p>
-  schedule works!
-</p>
+<mat-grid-list cols="3" rowHeight="240px">
+  <mat-grid-tile colspan="1" rowspan="2">
+    <mat-card class="cartCard">
+      <mat-list *ngIf="currSelectedTab == 2">
+        <mat-list-item *ngFor="let type of types">
+          <img class="avatarImage" [src]="type.image" width="50" height="50">
+          <h3 mat-line>{{type.title}}</h3>
+          <h4 dir="rtl" mat-line>{{type.price}} שקלים | {{type.duration}} דקות</h4>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+        <mat-list-item>
+          <h1 mat-line dir="rtl" style="text-align:center; font-size:20px;">120 שקלים</h1>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <div class="dateDiv">
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="בחר תאריך" autocomplete="off">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-icon class="date-icon">date_range</mat-icon>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2" rowspan="1">
+    <mat-form-field>
+      <mat-select placeholder="בחר שעה">
+        <mat-option *ngFor="let time of times" [value]="time">
+      {{ time }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-icon class="clock-icon">watch_later</mat-icon>
+  </mat-grid-tile>
+</mat-grid-list>

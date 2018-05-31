@@ -1,7 +1,7 @@
 <div class="main-card"> 
   <div class="paddingDiv">
     <div class="stepperDiv">
-      <mat-tab-group dir="ltr" [selectedIndex]="selectedTab" (selectedIndexChange)="selectedTab = $event">
+      <mat-tab-group dir="ltr" [selectedIndex]="selectedTab" (selectedIndexChange)="isNextDisable($event)">
         <mat-tab label="סיים" disabled="true">
           פה סיום
         </mat-tab>
@@ -9,7 +9,7 @@
           פה הזדהות
         </mat-tab>
         <mat-tab label="בחר מועד" [disabled]="!isNext || !isChecked">
-          פה בוחרים מועד
+          <app-schedule [types]="typesParent" [currSelectedTab]="selectedTab"></app-schedule>
         </mat-tab>
         <mat-tab label="בחר טיפולים">
           <app-type-list (isChecked)="onCheck($event)" (checkedTypesOutside)="onNext($event)"></app-type-list>

@@ -1,0 +1,25 @@
+.date-icon {
+    font-size:50px;
+    position:relative;
+    top:15px;
+    left:5px;
+    color: rgba(204, 77, 77, 0.7);
+}
+
+.clock-icon {
+    position:relative;
+    font-size:50px;
+    bottom:20px;
+    left:5px;
+    color: rgba(99,99,99,0.7);
+}
+
+.cartCard {
+    width: 90%;
+    height:300px;
+    opacity:0.7;
+}
+
+.avatarImage {
+    background-color: rgba(0,0,0,0.1);
+}

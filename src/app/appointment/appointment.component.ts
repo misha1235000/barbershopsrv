@@ -13,17 +13,27 @@ export class AppointmentComponent implements OnInit {
   isChecked: boolean = false;
   isNext: boolean = false;
   selectedTab: number = 3;
+  typesParent: any[];
 
   onCheck(isChecked) {
     this.isChecked = isChecked;
   }
 
-  onNext() {
+  onNext(types) {
     this.isNext = true;
     this.selectedTab = 2;
+    this.typesParent = types;
   }
 
   ngOnInit() {
     
+  }
+
+  isNextDisable(event) {
+    if (event > this.selectedTab) {
+     // this.isNext = false;
+    }
+
+    this.selectedTab = event;
   }
 }

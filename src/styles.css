@@ -46,3 +46,24 @@ body {
     color:black;
     font-weight:bold;
 }
+
+[dir=rtl] .mat-calendar-next-button, [dir=rtl] .mat-calendar-previous-button {
+    transform: none !important;
+}
+
+.mat-calendar-arrow {
+    margin: 0 0 0 5px !important;
+}
+
+.mat-form-field-flex {
+    direction: rtl !important;
+}
+
+.mat-form-field-wrapper {
+    width: 250px !important;
+}
+
+.mat-list-text {
+    text-align:right !important;
+    padding:0 10px 0 0 !important;
+}
