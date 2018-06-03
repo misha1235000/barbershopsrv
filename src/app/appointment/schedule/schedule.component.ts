@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 function getTimeRanges(openHour: number, closeHour: number, step: number): string[] {
   let timesArr: string[] = [];
@@ -7,7 +7,6 @@ function getTimeRanges(openHour: number, closeHour: number, step: number): strin
   let currHourStr: string;
   let currMinutesStr: string;
   let isDone: boolean = false;
-  let dateSchedule: Date;
 
   while(!isDone) {
     currHour < 10 ? currHourStr = "0" + currHour.toString() : currHourStr = currHour.toString();
@@ -44,7 +43,11 @@ function getTimeRanges(openHour: number, closeHour: number, step: number): strin
 export class ScheduleComponent implements OnInit {
   @Input() types = [];
   @Input() currSelectedTab;
+  @Output() scheduleOutside = new EventEmitter<any>();
   
+
+  dateSchedule: Date;
+  timeSchedule: string;
   totalPrice: number;
   totalDuration: number; 
   times = []
@@ -70,12 +73,21 @@ export class ScheduleComponent implements OnInit {
     }
   }
 
-
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
     // Prevent Saturday and Sunday from being selected.
 
-    return day !== 0 && day !== 6 && new Date() <= d;
+    return day !== 6 && new Date() <= d;
   }
 
+  next() {
+    let time: string[] = this.timeSchedule.split(':');
+    this.dateSchedule.setHours(parseInt(time[0]), parseInt(time[1]));
+    
+    this.scheduleOutside.emit(this.dateSchedule);
+  }
+
+  isValidDate() {
+    return (this.dateSchedule instanceof Date);
+  }
 }

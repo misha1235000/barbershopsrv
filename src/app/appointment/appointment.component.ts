@@ -11,7 +11,8 @@ export class AppointmentComponent implements OnInit {
   
   constructor(public dialog: MatDialog) { }
   isChecked: boolean = false;
-  isNext: boolean = false;
+  isTypes: boolean = false;
+  isSchedule: boolean = false;
   selectedTab: number = 3;
   typesParent: any[];
 
@@ -19,10 +20,15 @@ export class AppointmentComponent implements OnInit {
     this.isChecked = isChecked;
   }
 
-  onNext(types) {
-    this.isNext = true;
+  onTypeSend(types) {
+    this.isTypes = true;
     this.selectedTab = 2;
     this.typesParent = types;
+  }
+
+  onScheduleSend(schedule) {
+    this.selectedTab = 1;
+    this.isSchedule = true;
   }
 
   ngOnInit() {

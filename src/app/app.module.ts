@@ -21,6 +21,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { ImageProductComponent } from './products/image-product/image-product.component';
 import { ScheduleComponent } from './appointment/schedule/schedule.component';
+import { VerifyComponent } from './appointment/verify/verify.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     HomeComponent,
     ImageProductComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,

@@ -5,14 +5,14 @@
         <mat-tab label="סיים" disabled="true">
           פה סיום
         </mat-tab>
-        <mat-tab label="הזדהות" disabled="true">
-          פה הזדהות
+        <mat-tab label="הזדהות" [disabled]="!isSchedule">
+          <app-verify></app-verify>
         </mat-tab>
-        <mat-tab label="בחר מועד" [disabled]="!isNext || !isChecked">
-          <app-schedule [types]="typesParent" [currSelectedTab]="selectedTab" *ngIf="selectedTab == 2"></app-schedule>
+        <mat-tab label="בחר מועד" [disabled]="!isTypes || !isChecked">
+          <app-schedule [types]="typesParent" [currSelectedTab]="selectedTab" *ngIf="selectedTab <= 2" (scheduleOutside)="onScheduleSend($event)"></app-schedule>
         </mat-tab>
         <mat-tab label="בחר טיפולים">
-          <app-type-list (isChecked)="onCheck($event)" (checkedTypesOutside)="onNext($event)"></app-type-list>
+          <app-type-list (isChecked)="onCheck($event)" (checkedTypesOutside)="onTypeSend($event)"></app-type-list>
         </mat-tab>
       </mat-tab-group>
     <!--  <h1 class="typeText">בחר טיפולים</h1>

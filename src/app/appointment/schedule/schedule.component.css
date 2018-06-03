@@ -41,3 +41,15 @@
     position:relative;
     bottom:22px;
 }
+
+.fab-button {
+    position:absolute;
+    bottom: 50px;
+    left: 0px;
+    background-color:rgba(63,81,181,0.85);
+}
+
+.gridList {
+    position:relative;
+    bottom: 50px;
+}
