@@ -9,7 +9,7 @@
           פה הזדהות
         </mat-tab>
         <mat-tab label="בחר מועד" [disabled]="!isNext || !isChecked">
-          <app-schedule [types]="typesParent" [currSelectedTab]="selectedTab"></app-schedule>
+          <app-schedule [types]="typesParent" [currSelectedTab]="selectedTab" *ngIf="selectedTab == 2"></app-schedule>
         </mat-tab>
         <mat-tab label="בחר טיפולים">
           <app-type-list (isChecked)="onCheck($event)" (checkedTypesOutside)="onNext($event)"></app-type-list>

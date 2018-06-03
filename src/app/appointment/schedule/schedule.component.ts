@@ -7,6 +7,7 @@ function getTimeRanges(openHour: number, closeHour: number, step: number): strin
   let currHourStr: string;
   let currMinutesStr: string;
   let isDone: boolean = false;
+  let dateSchedule: Date;
 
   while(!isDone) {
     currHour < 10 ? currHourStr = "0" + currHour.toString() : currHourStr = currHour.toString();
@@ -52,7 +53,7 @@ export class ScheduleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.times = getTimeRanges(9, 21, 20);
+    this.times = getTimeRanges(9, 21, 30);
   }
 
   ngOnChanges() {
@@ -73,7 +74,8 @@ export class ScheduleComponent implements OnInit {
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
     // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
+
+    return day !== 0 && day !== 6 && new Date() <= d;
   }
 
 }

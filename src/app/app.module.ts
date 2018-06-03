@@ -6,14 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
          MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule, MatInputModule,
          MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatExpansionModule, MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule} from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { AppointmentsComponent } from './appointments/appointments.component';
-import { AppointmentsListComponent } from './appointments/appointments-list/appointments-list.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AppointmentComponent } from './appointment/appointment.component';
-import { TypeListComponent } from './appointment/appointment-list/type-list.component';
+import { TypeListComponent } from './appointment/type/type-list.component';
 import { AppointmentTypeService } from './appointment/appointment.service';
 import { ProductService } from './products/product.service';
 import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
@@ -40,8 +38,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ToolbarComponent,
-    AppointmentsComponent,
-    AppointmentsListComponent,
     SidenavComponent,
     AppointmentComponent,
     TypeListComponent,
@@ -60,7 +56,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true }
     ),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, FormsModule,
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
     MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule,
     MatDatepickerModule, MatNativeDateModule, MatInputModule, ReactiveFormsModule, MatSelectModule,
