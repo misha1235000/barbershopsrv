@@ -14,6 +14,7 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { TypeListComponent } from './appointment/type/type-list.component';
 import { AppointmentTypeService } from './appointment/appointment.service';
 import { ProductService } from './products/product.service';
+import { VerifyService } from './appointment/verify/verify.service';
 import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
 import { MaincontentComponent } from './maincontent/maincontent.component';
 import { ProductsComponent } from './products/products.component';
@@ -71,7 +72,7 @@ const appRoutes: Routes = [
     MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule
   ],
   entryComponents: [AddAppointmentComponent, ImageProductComponent],
-  providers: [AppointmentTypeService, ProductService],
+  providers: [AppointmentTypeService, ProductService, VerifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

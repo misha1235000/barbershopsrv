@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VerifyService } from './verify.service';
 
 @Component({
   selector: 'app-verify',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./verify.component.css']
 })
 export class VerifyComponent implements OnInit {
+  phone;
 
-  constructor() { }
+  constructor(private verifyService: VerifyService) { }
 
   ngOnInit() {
+  }
+
+  sendSMS() {
+    this.verifyService.sendSMS(this.phone);
   }
 
 }
