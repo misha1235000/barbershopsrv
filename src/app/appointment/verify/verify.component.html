@@ -1,21 +1,24 @@
-<mat-grid-list class="gridList" cols="1" rowHeight="240px">
+<mat-grid-list class="gridList" cols="1" rowHeight="200px">
   <mat-grid-tile colspan="1" rowspan="1">
     <div class="dateDiv">
       <mat-form-field>
         <input matInput placeholder="שם מלא" autocomplete="off" [(ngModel)]="fullname">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <mat-icon class="date-icon" >person</mat-icon>
+      <mat-icon class="date-icon">person</mat-icon>
     </div>
   </mat-grid-tile>
   <mat-grid-tile colspan="1" rowspan="1">
-    <div class="dateDiv">
-    <button mat-icon-button color="primary" (click)="sendSMS()"><mat-icon>check</mat-icon></button>
+    <div class="dateDiv" *ngIf="fullname.length >= 3">
+    <button mat-icon-button color="primary" (click)="sendSMS();" class="verifyBtn" matTooltip="שלח" matTooltipPosition="above" *ngIf="!isVerify"><mat-icon>check</mat-icon></button>
+    <button mat-icon-button color="primary" (click)="verifyCode();" class="verifyBtn" matTooltip="שלח" matTooltipPosition="above" *ngIf="isVerify && resData"><mat-icon>check</mat-icon></button>
+    <mat-spinner class="spinnerBtn" *ngIf="isVerify && !resData" diameter="30"></mat-spinner>
     <mat-form-field>
-      <input matInput placeholder="מספר טלפון" ([ngModel])="phone">
+      <input matInput placeholder="מספר טלפון" [(ngModel)]="phone" *ngIf="!resData">
+      <input matInput placeholder="קוד אימות" [(ngModel)]="code" *ngIf="resData">
     </mat-form-field>
-      <mat-icon class="date-icon" >date_range</mat-icon>
+
+    <mat-icon class="date-icon" *ngIf="!resData">phone</mat-icon>
+    <mat-icon class="date-icon" *ngIf="resData">lock</mat-icon>
     </div>
   </mat-grid-tile>
-<button (click)="next()" class="fab-button" matTooltip="המשך" mat-mini-fab disabled="true"><mat-icon>arrow_back</mat-icon></button>
+<button (click)="next()" class="fab-button" matTooltip="המשך" matTooltipPosition="above" mat-mini-fab disabled="true"><mat-icon>arrow_back</mat-icon></button>

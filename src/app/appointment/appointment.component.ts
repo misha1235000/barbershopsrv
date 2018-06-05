@@ -13,7 +13,7 @@ export class AppointmentComponent implements OnInit {
   isChecked: boolean = false;
   isTypes: boolean = false;
   isSchedule: boolean = false;
-  selectedTab: number = 3;
+  selectedTab: number = 1;
   typesParent: any[];
 
   onCheck(isChecked) {

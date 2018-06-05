@@ -2,6 +2,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
          MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule, MatInputModule,
@@ -63,13 +64,13 @@ const appRoutes: Routes = [
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
     MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule,
     MatDatepickerModule, MatNativeDateModule, MatInputModule, ReactiveFormsModule, MatSelectModule,
-    MatExpansionModule, MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule
+    MatExpansionModule, MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule, MatProgressSpinnerModule
   ],
   exports: [
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
     MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule,
     MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModule, MatExpansionModule,
-    MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule
+    MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule, MatProgressSpinnerModule
   ],
   entryComponents: [AddAppointmentComponent, ImageProductComponent],
   providers: [AppointmentTypeService, ProductService, VerifyService],

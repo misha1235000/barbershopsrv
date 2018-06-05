@@ -1,6 +1,6 @@
 .fab-button {
     position:absolute;
-    bottom: 50px;
+    bottom: -40px;
     left: 0px;
     background-color:rgba(63,81,181,0.85);
 }
@@ -28,4 +28,17 @@
     border-radius: 5px;
     position:relative;
     top:22px;
+    width:350px !important;
+}
+
+.verifyBtn {
+    position: absolute;
+    left: 10px;
+    bottom: 35%;
+}
+
+.spinnerBtn {
+    position: absolute;
+    left: 20px;
+    bottom: 40%;
 }

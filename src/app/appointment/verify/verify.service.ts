@@ -11,11 +11,20 @@ export class VerifyService {
   constructor(private http: Http){}
   
   sendSMS(phone): Observable<any> {
-    return this.http.post(this.serverUrl + '/sms', {'number': phone})
+    return this.http.post(this.serverUrl + '/sms', {'phone': phone})
            .map((res: Response) => {
               return res.json();
            }).catch((error) => {
              return error.json().error;
-           });;
+           });
+  }
+
+  verifyCode(code, reqId): Observable<any> {
+    return this.http.post(this.serverUrl + '/verify', {'code': code, 'request_id': reqId})
+           .map((res: Response) => {
+              return res.json();
+           }).catch((error) => {
+             return error.json().error;
+           });
   }
 }
