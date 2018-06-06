@@ -10,15 +10,19 @@
   <mat-grid-tile colspan="1" rowspan="1">
     <div class="dateDiv" *ngIf="fullname.length >= 3">
     <button mat-icon-button color="primary" (click)="sendSMS();" class="verifyBtn" matTooltip="שלח" matTooltipPosition="above" *ngIf="!isVerify"><mat-icon>check</mat-icon></button>
-    <button mat-icon-button color="primary" (click)="verifyCode();" class="verifyBtn" matTooltip="שלח" matTooltipPosition="above" *ngIf="isVerify && resData"><mat-icon>check</mat-icon></button>
-    <mat-spinner class="spinnerBtn" *ngIf="isVerify && !resData" diameter="30"></mat-spinner>
+    <button mat-icon-button color="primary" (click)="verifyCode();" class="verifyBtn" matTooltip="שלח" matTooltipPosition="above" *ngIf="isVerify && resSendSMSData && !isCode"><mat-icon>check</mat-icon></button>
+    <mat-spinner class="spinnerBtn" *ngIf="isVerify && !resSendSMSData" diameter="30"></mat-spinner>
+    <mat-spinner class="spinnerBtn" *ngIf="isCode && !resVerifyData" diameter="30"></mat-spinner>
     <mat-form-field>
-      <input matInput placeholder="מספר טלפון" [(ngModel)]="phone" *ngIf="!resData">
-      <input matInput placeholder="קוד אימות" [(ngModel)]="code" *ngIf="resData">
+      <input matInput placeholder="מספר טלפון" [(ngModel)]="phone" *ngIf="!resSendSMSData">
+      <input matInput placeholder="קוד אימות" [(ngModel)]="code" *ngIf="resSendSMSData">
     </mat-form-field>
 
-    <mat-icon class="date-icon" *ngIf="!resData">phone</mat-icon>
-    <mat-icon class="date-icon" *ngIf="resData">lock</mat-icon>
+    <mat-icon class="date-icon" *ngIf="!resSendSMSData">phone</mat-icon>
+    <mat-icon class="date-icon" *ngIf="resSendSMSData">lock</mat-icon>
+    <br>
+    <span style="font-size:13px; color:red;">{{errorVerify}}</span>
+    <span style="font-size:13px; color:red;">{{errorSMS}}</span>
     </div>
   </mat-grid-tile>
 <button (click)="next()" class="fab-button" matTooltip="המשך" matTooltipPosition="above" mat-mini-fab disabled="true"><mat-icon>arrow_back</mat-icon></button>

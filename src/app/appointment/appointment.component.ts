@@ -11,9 +11,11 @@ export class AppointmentComponent implements OnInit {
   
   constructor(public dialog: MatDialog) { }
   isChecked: boolean = false;
+  isFinished: boolean = false;
   isTypes: boolean = false;
+  isFirst: boolean = true;
   isSchedule: boolean = false;
-  selectedTab: number = 1;
+  selectedTab: number = 3;
   typesParent: any[];
 
   onCheck(isChecked) {

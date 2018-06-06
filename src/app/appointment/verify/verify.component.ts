@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { VerifyService } from './verify.service';
 
 @Component({
@@ -7,11 +7,17 @@ import { VerifyService } from './verify.service';
   styleUrls: ['./verify.component.css']
 })
 export class VerifyComponent implements OnInit {
+  @Output() finished = new EventEmitter<any>();
   fullname = "";
   phone;
+  errorSMS;
+  errorVerify;
   code;
   isVerify: boolean = false;
-  resData;
+  isCode: boolean = false;
+  resSendSMSData;
+  resVerifyData;
+
 
   constructor(private verifyService: VerifyService) { }
 
@@ -26,9 +32,11 @@ export class VerifyComponent implements OnInit {
       data = JSON.parse(data);
       console.log(data);
       if (data.error_text && data.status != "10") {
+        this.errorSMS = data.error_text;
         this.isVerify = false;
       } else {
-        this.resData = data;
+        this.errorSMS = ""
+        this.resSendSMSData = data;
       }
     }, (err) => {
       console.log(err);
@@ -36,11 +44,23 @@ export class VerifyComponent implements OnInit {
   }
 
   verifyCode() {
-    this.verifyService.verifyCode(this.code, this.resData.request_id).subscribe((data) => {
+    this.isCode = true;
+    this.verifyService.verifyCode(this.code, this.resSendSMSData.request_id).subscribe((data) => {
       data = JSON.parse(data);
+      if (data.error_text) {
+        this.errorVerify = data.error_text;
+        this.isCode = false;
+        console.log(data);
+      } else {
+        this.errorVerify = "";
+        this.resVerifyData = data;
+        this.finished.emit();
+      }
       console.log(data);
     }, (err) => {
       console.log(err);
     });
+    
+
   }
 }

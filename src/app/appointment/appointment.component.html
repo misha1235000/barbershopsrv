@@ -2,17 +2,17 @@
   <div class="paddingDiv">
     <div class="stepperDiv">
       <mat-tab-group dir="ltr" [selectedIndex]="selectedTab" (selectedIndexChange)="isNextDisable($event)">
-        <mat-tab label="סיים" disabled="true">
+        <mat-tab label="סיים" disabled="true" [disabled]="!isFinished">
           פה סיום
         </mat-tab>
         <mat-tab label="הזדהות" [disabled]="!isSchedule">
-          <app-verify></app-verify>
+          <app-verify (finished)="selectedTab = 0; isSchedule = false; isTypes = false; isFirst = false; isFinished = true;"></app-verify>
         </mat-tab>
         <mat-tab label="בחר מועד" [disabled]="!isTypes || !isChecked">
           <app-schedule [types]="typesParent" [currSelectedTab]="selectedTab" *ngIf="selectedTab <= 2" (scheduleOutside)="onScheduleSend($event)"></app-schedule>
         </mat-tab>
-        <mat-tab label="בחר טיפולים">
-          <app-type-list (isChecked)="onCheck($event)" (checkedTypesOutside)="onTypeSend($event)"></app-type-list>
+        <mat-tab label="בחר טיפולים" [disabled]="!isFirst">
+          <app-type-list (isChecked)="onCheck($event)" (checkedTypesOutside)="onTypeSend($event)" ></app-type-list>
         </mat-tab>
       </mat-tab-group>
     <!--  <h1 class="typeText">בחר טיפולים</h1>
