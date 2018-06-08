@@ -24,7 +24,7 @@
 }
 
 .productImage {
-    max-height: 120px;
+    height:120px;
     width:100%;
     cursor: pointer;
 }
