@@ -9,7 +9,7 @@ import { VerifyService } from './verify.service';
 export class VerifyComponent implements OnInit {
   @Output() finished = new EventEmitter<any>();
   fullname = "";
-  phone;
+  phone: string;
   errorSMS;
   errorVerify;
   code;
@@ -25,9 +25,13 @@ export class VerifyComponent implements OnInit {
     
   }
 
+  isValidPhone(): boolean {
+    let terms = /05\d{8}/;
+    return terms.test(this.phone);
+  }
+
   sendSMS() {
     this.isVerify = true;
-
     this.verifyService.sendSMS(this.phone).subscribe((data) => {
       data = JSON.parse(data);
       console.log(data);

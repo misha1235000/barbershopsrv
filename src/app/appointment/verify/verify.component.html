@@ -14,8 +14,8 @@
     <mat-spinner class="spinnerBtn" *ngIf="isVerify && !resSendSMSData" diameter="30"></mat-spinner>
     <mat-spinner class="spinnerBtn" *ngIf="isCode && !resVerifyData" diameter="30"></mat-spinner>
     <mat-form-field>
-      <input matInput placeholder="מספר טלפון" [(ngModel)]="phone" *ngIf="!resSendSMSData">
-      <input matInput placeholder="קוד אימות" [(ngModel)]="code" *ngIf="resSendSMSData">
+      <input matInput placeholder="מספר טלפון" [(ngModel)]="phone" [disabled]="phone.length != 10" *ngIf="!resSendSMSData">
+      <input matInput placeholder="קוד אימות" [(ngModel)]="code"  [disabled]="code.length <= 0" *ngIf="resSendSMSData">
     </mat-form-field>
 
     <mat-icon class="date-icon" *ngIf="!resSendSMSData">phone</mat-icon>
