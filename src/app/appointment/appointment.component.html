@@ -6,7 +6,7 @@
           פה סיום
         </mat-tab>
         <mat-tab label="הזדהות" [disabled]="!isSchedule">
-          <app-verify (finished)="selectedTab = 0; isSchedule = false; isTypes = false; isFirst = false; isFinished = true;"></app-verify>
+          <app-verify [appointmentScheduled]="appointmentParent" (finished)="selectedTab = 0; isSchedule = false; isTypes = false; isFirst = false; isFinished = true;"></app-verify>
         </mat-tab>
         <mat-tab label="בחר מועד" [disabled]="!isTypes || !isChecked">
           <app-schedule [types]="typesParent" [currSelectedTab]="selectedTab" *ngIf="selectedTab <= 2" (scheduleOutside)="onScheduleSend($event)"></app-schedule>

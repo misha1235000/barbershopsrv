@@ -17,6 +17,7 @@ export class AppointmentComponent implements OnInit {
   isSchedule: boolean = false;
   selectedTab: number = 3;
   typesParent: any[];
+  appointmentParent: any[];
 
   onCheck(isChecked) {
     this.isChecked = isChecked;
@@ -29,8 +30,9 @@ export class AppointmentComponent implements OnInit {
   }
 
   onScheduleSend(schedule) {
-    this.selectedTab = 1;
     this.isSchedule = true;
+    this.selectedTab = 1;
+    this.appointmentParent = schedule;
   }
 
   ngOnInit() {

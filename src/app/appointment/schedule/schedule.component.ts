@@ -56,7 +56,7 @@ export class ScheduleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.times = getTimeRanges(9, 21, 30);
+    this.times = getTimeRanges(9, 21, 10);
   }
 
   ngOnChanges() {
@@ -82,9 +82,12 @@ export class ScheduleComponent implements OnInit {
 
   next() {
     let time: string[] = this.timeSchedule.split(':');
+    let dateMilliseconds: number;
+
     this.dateSchedule.setHours(parseInt(time[0]), parseInt(time[1]));
+    dateMilliseconds = this.dateSchedule.getTime();
     
-    this.scheduleOutside.emit(this.dateSchedule);
+    this.scheduleOutside.emit({'date': dateMilliseconds,  'types': this.types.map(type => type._id)});
   }
 
   isValidDate() {

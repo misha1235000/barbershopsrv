@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { VerifyService } from './verify.service';
 
 @Component({
@@ -7,7 +7,9 @@ import { VerifyService } from './verify.service';
   styleUrls: ['./verify.component.css']
 })
 export class VerifyComponent implements OnInit {
+  @Input() appointmentScheduled;
   @Output() finished = new EventEmitter<any>();
+
   fullname = "";
   phone: string = "";
   errorSMS;
@@ -23,6 +25,9 @@ export class VerifyComponent implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  ngOnChanges() {
   }
 
   isValidPhone(): boolean {
@@ -48,8 +53,12 @@ export class VerifyComponent implements OnInit {
   }
 
   verifyCode() {
+    let appointment = {'datefrom': this.appointmentScheduled.date, 'types':this.appointmentScheduled.types};
+    let user = {'name': this.fullname, 'phone': this.phone};
+
+
     this.isCode = true;
-    this.verifyService.verifyCode(this.code, this.resSendSMSData.request_id).subscribe((data) => {
+    this.verifyService.verifyCode(this.code, this.resSendSMSData.request_id, appointment, user).subscribe((data) => {
       data = JSON.parse(data);
       if (data.error_text) {
         this.errorVerify = data.error_text;
