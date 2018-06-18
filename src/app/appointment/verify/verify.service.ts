@@ -19,8 +19,8 @@ export class VerifyService {
            });
   }
 
-  verifyCode(code, reqId): Observable<any> {
-    return this.http.post(this.serverUrl + '/verify', {'code': code, 'request_id': reqId})
+  verifyCode(code, reqId, appointment, user): Observable<any> {
+    return this.http.post(this.serverUrl + '/verify', {'code': code, 'request_id': reqId, 'appointment': appointment, 'user': user})
            .map((res: Response) => {
               return res.json();
            }).catch((error) => {

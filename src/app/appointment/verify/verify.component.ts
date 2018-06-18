@@ -9,10 +9,10 @@ import { VerifyService } from './verify.service';
 export class VerifyComponent implements OnInit {
   @Output() finished = new EventEmitter<any>();
   fullname = "";
-  phone: string;
+  phone: string = "";
   errorSMS;
   errorVerify;
-  code;
+  code: string = "";
   isVerify: boolean = false;
   isCode: boolean = false;
   resSendSMSData;
