@@ -53,13 +53,16 @@ export class VerifyComponent implements OnInit {
   }
 
   verifyCode() {
-    let appointment = {'datefrom': this.appointmentScheduled.date, 'types':this.appointmentScheduled.types};
+    let appointment = {'datefrom': this.appointmentScheduled.date, 'ownerPhone': this.phone ,'types':this.appointmentScheduled.types};
     let user = {'name': this.fullname, 'phone': this.phone};
 
 
     this.isCode = true;
     this.verifyService.verifyCode(this.code, this.resSendSMSData.request_id, appointment, user).subscribe((data) => {
-      data = JSON.parse(data);
+      if (typeof(data) == "string") {
+        data = JSON.parse(data);
+      }
+      
       if (data.error_text || !data.success) {
         this.errorVerify = data.error_text;
         this.isCode = false;
