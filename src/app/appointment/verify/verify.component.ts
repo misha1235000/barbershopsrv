@@ -31,7 +31,7 @@ export class VerifyComponent implements OnInit {
   }
 
   isValidPhone(): boolean {
-    let terms = /05\d{8}/;
+    let terms = /^05\d{8}$/;
     return terms.test(this.phone);
   }
 
@@ -60,14 +60,16 @@ export class VerifyComponent implements OnInit {
     this.isCode = true;
     this.verifyService.verifyCode(this.code, this.resSendSMSData.request_id, appointment, user).subscribe((data) => {
       data = JSON.parse(data);
-      if (data.error_text) {
+      if (data.error_text || !data.success) {
         this.errorVerify = data.error_text;
         this.isCode = false;
         console.log(data);
       } else {
         this.errorVerify = "";
-        this.resVerifyData = data;
-        this.finished.emit();
+        if (data.success) {
+          this.resVerifyData = data;
+          this.finished.emit();
+        }
       }
       console.log(data);
     }, (err) => {
