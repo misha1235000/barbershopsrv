@@ -93,14 +93,14 @@ export class ScheduleComponent implements OnInit {
             let dateTo = new Date(this.times[i].value);
             dateTo.setMinutes(dateTo.getMinutes() + this.totalDuration);
             
-            if ((this.times[i].value >= appointment.datefrom && this.times[i].value < appointment.dateto) ||
+            if ((this.times[i].value >= appointment.datefrom && this.times[i].value <= appointment.dateto) ||
                 (dateTo.getTime() > appointment.datefrom && dateTo.getTime() <= appointment.dateto) ||
                 (this.times[i].value < appointment.datefrom && dateTo.getTime() > appointment.dateto)) {
                   this.times.splice(i, 1);
                   i--;
                 }
               }
-        }
+        })
 /*
         this.times.forEach((time, index) => {
           let dateTo = new Date(this.dateSchedule);
