@@ -95,7 +95,8 @@ export class ScheduleComponent implements OnInit {
             
             if ((this.times[i].value >= appointment.datefrom && this.times[i].value <= appointment.dateto) ||
                 (dateTo.getTime() > appointment.datefrom && dateTo.getTime() <= appointment.dateto) ||
-                (this.times[i].value < appointment.datefrom && dateTo.getTime() > appointment.dateto)) {
+                (this.times[i].value < appointment.datefrom && dateTo.getTime() > appointment.dateto)) { //||
+                 //dateTo.getTime > lastdate) {
                   this.times.splice(i, 1);
                   i--;
                 }
