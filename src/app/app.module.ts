@@ -13,7 +13,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { TypeListComponent } from './appointment/type/type-list.component';
-import { AppointmentTypeService } from './appointment/appointment.service';
+import { AppointmentService } from './appointment/appointment.service';
+import { AppointmentTypeService } from './appointment/type/type-list.service';
 import { ProductService } from './products/product.service';
 import { VerifyService } from './appointment/verify/verify.service';
 import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
@@ -58,7 +59,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true }
+      { enableTracing: false }
     ),
     BrowserAnimationsModule, FormsModule,
     MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
@@ -73,7 +74,7 @@ const appRoutes: Routes = [
     MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule, MatProgressSpinnerModule
   ],
   entryComponents: [AddAppointmentComponent, ImageProductComponent],
-  providers: [AppointmentTypeService, ProductService, VerifyService],
+  providers: [AppointmentTypeService, AppointmentService, ProductService, VerifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

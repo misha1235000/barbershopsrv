@@ -37,28 +37,34 @@ export class VerifyComponent implements OnInit {
 
   sendSMS() {
     this.isVerify = true;
-    this.verifyService.sendSMS(this.phone).subscribe((data) => {
-      data = JSON.parse(data);
-      console.log(data);
-      if (data.error_text && data.status != "10") {
-        this.errorSMS = data.error_text;
-        this.isVerify = false;
-      } else {
+    //this.verifyService.sendSMS(this.phone).subscribe((data) => {
+     // data = JSON.parse(data);
+      //console.log(data);
+     // if (data.error_text && data.status != "10") {
+      //  this.errorSMS = data.error_text;
+      //  this.isVerify = false;
+     // } else {
         this.errorSMS = ""
-        this.resSendSMSData = data;
-      }
-    }, (err) => {
-      console.log(err);
-    });
+        this.resSendSMSData = true;
+     // }
+    //}, (err) => {
+    //  console.log(err);
+    //});
   }
 
   verifyCode() {
-    let appointment = {'datefrom': this.appointmentScheduled.date, 'ownerPhone': this.phone ,'types':this.appointmentScheduled.types};
+    let newDate = new Date(this.appointmentScheduled.date);
+    let appointment = {'datefrom': this.appointmentScheduled.date,
+                       'dateto': this.appointmentScheduled.dateto,
+                       'dateFilter': new Date(this.appointmentScheduled.date).getDate().toString() + "-" +
+                                    (new Date(this.appointmentScheduled.date).getMonth() + 1).toString() + "-" +
+                                     new Date(this.appointmentScheduled.date).getFullYear(),
+                       'ownerPhone': this.phone ,'types':this.appointmentScheduled.types};
     let user = {'name': this.fullname, 'phone': this.phone};
 
 
     this.isCode = true;
-    this.verifyService.verifyCode(this.code, this.resSendSMSData.request_id, appointment, user).subscribe((data) => {
+    this.verifyService.verifyCode(this.code, this.resSendSMSData/*.request_id*/, appointment, user).subscribe((data) => {
       if (typeof(data) == "string") {
         data = JSON.parse(data);
       }

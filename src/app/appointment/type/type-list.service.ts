@@ -5,13 +5,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class AppointmentService {
+export class AppointmentTypeService {
   private serverUrl = "http://localhost:3000/api";
 
   constructor(private http: Http){}
   
-  get(date): Observable<any> {
-    return this.http.get(this.serverUrl + '/appointment/' + date)
+  get(): Observable<any> {
+    return this.http.get(this.serverUrl + '/type')
            .map((res: Response) => {
               return res.json();
            }).catch((error) => {

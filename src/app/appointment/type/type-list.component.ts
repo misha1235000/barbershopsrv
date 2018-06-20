@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { AppointmentTypeService } from '../appointment.service';
+import { AppointmentTypeService } from './type-list.service';
 
 
 @Component({
