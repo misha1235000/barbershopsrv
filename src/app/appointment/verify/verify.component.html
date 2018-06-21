@@ -1,14 +1,6 @@
 <mat-grid-list class="gridList" cols="1" rowHeight="200px">
   <mat-grid-tile colspan="1" rowspan="1">
     <div class="dateDiv">
-      <mat-form-field>
-        <input matInput placeholder="שם מלא" autocomplete="off" [(ngModel)]="fullname">
-      </mat-form-field>
-      <mat-icon class="date-icon">person</mat-icon>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="1">
-    <div class="dateDiv" *ngIf="fullname.length >= 3">
     <button mat-icon-button color="primary" (click)="sendSMS();" class="verifyBtn" matTooltip="שלח" matTooltipPosition="above" *ngIf="!isVerify" [disabled]="!isValidPhone()"><mat-icon>check</mat-icon></button>
     <button mat-icon-button color="primary" (click)="verifyCode();" class="verifyBtn" matTooltip="שלח" matTooltipPosition="above" *ngIf="isVerify && resSendSMSData && !isCode" [disabled]="code.length <= 0"><mat-icon>check</mat-icon></button>
     <mat-spinner class="spinnerBtn" *ngIf="isVerify && !resSendSMSData" diameter="30"></mat-spinner>
@@ -24,4 +16,12 @@
     <span style="font-size:13px; color:red;">{{errorSMS}}</span>
     </div>
   </mat-grid-tile>
-<button (click)="next()" class="fab-button" matTooltip="המשך" matTooltipPosition="above" mat-mini-fab disabled="true"><mat-icon>arrow_back</mat-icon></button>
+  <mat-grid-tile colspan="1" rowspan="1">
+    <div class="dateDiv" *ngIf="isNameReq">
+      <mat-form-field>
+        <input matInput placeholder="שם מלא" autocomplete="off" [(ngModel)]="fullname">
+      </mat-form-field>
+      <mat-icon class="date-icon">person</mat-icon>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

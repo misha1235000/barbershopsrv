@@ -30,6 +30,10 @@ function getTimeRanges(openHour: number, closeHour: number, step: number, date: 
     if (currHour == 24) {
       currHour = 0;
     }
+
+    if(currHour == closeHour) {
+      isDone = true;
+    }
   }
 
   return timesArr;

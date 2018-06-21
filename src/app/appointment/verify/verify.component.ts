@@ -17,6 +17,7 @@ export class VerifyComponent implements OnInit {
   code: string = "";
   isVerify: boolean = false;
   isCode: boolean = false;
+  isNameReq: boolean = false;
   resSendSMSData;
   resVerifyData;
 
@@ -36,20 +37,27 @@ export class VerifyComponent implements OnInit {
   }
 
   sendSMS() {
+    
     this.isVerify = true;
-    //this.verifyService.sendSMS(this.phone).subscribe((data) => {
-     // data = JSON.parse(data);
-      //console.log(data);
-     // if (data.error_text && data.status != "10") {
-      //  this.errorSMS = data.error_text;
-      //  this.isVerify = false;
-     // } else {
+    this.verifyService.sendSMS(this.phone).subscribe((data) => {
+      if (typeof(data) == "string") {
+        data = JSON.parse(data);
+      }
+
+      if(data.error_text && data.status == "100") {
+        this.errorSMS = "";
+        this.isNameReq = true;
+        this.isVerify = false;
+      } else if (data.error_text && data.status != "10") {
+        this.errorSMS = data.error_text;
+        this.isVerify = false;
+      } else {
         this.errorSMS = ""
         this.resSendSMSData = true;
-     // }
-    //}, (err) => {
-    //  console.log(err);
-    //});
+      }
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   verifyCode() {

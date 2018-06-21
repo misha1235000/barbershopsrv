@@ -9,7 +9,7 @@ export class VerifyService {
   private serverUrl = "http://localhost:3000/api";
 
   constructor(private http: Http){}
-  
+
   sendSMS(phone): Observable<any> {
     return this.http.post(this.serverUrl + '/sms', {'phone': phone})
            .map((res: Response) => {
