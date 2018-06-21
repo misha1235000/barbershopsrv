@@ -1,8 +1,13 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AppointmentService } from '../appointment.service';
 
+const OPEN_HOUR = 9;
+const CLOSE_HOUR = 21;
+const STEP = 10;
+
 function getTimeRanges(openHour: number, closeHour: number, step: number, date: Date): any[] {
   let timesArr = [];
+  let closeDate = new Date(date);
   let currHour: number = openHour;
   let currMinutes: number = 0;
   let currMilliseconds;
@@ -70,29 +75,28 @@ export class ScheduleComponent implements OnInit {
 
   filterValid(event) {
     if (event && this.isValidDate()) {
-      console.log(event);
+      let closeDate = new Date(event);
+
+      closeDate.setHours(CLOSE_HOUR, 0);
+
       this.appointmentService.get(event.getDate().toString() + "-" +
                                  (event.getMonth() + 1).toString() + "-" +
                                   event.getFullYear().toString()).subscribe((appointments) => {
-        this.times = getTimeRanges(9, 21, 10, event);
-        if (appointments.length > 0) {
-          console.log(appointments);
-        }
-
+        this.times = getTimeRanges(OPEN_HOUR, CLOSE_HOUR, STEP, event);
+        
         appointments.forEach(appointment => {
           for (let i = 0; i < this.times.length; i++) {
-            
             let dateTo = new Date(this.times[i].value);
             dateTo.setMinutes(dateTo.getMinutes() + this.totalDuration);
             
             if ((this.times[i].value >= appointment.datefrom && this.times[i].value <= appointment.dateto) ||
                 (dateTo.getTime() > appointment.datefrom && dateTo.getTime() <= appointment.dateto) ||
-                (this.times[i].value < appointment.datefrom && dateTo.getTime() > appointment.dateto)) { //||
-                 //dateTo.getTime > lastdate) {
+                (this.times[i].value < appointment.datefrom && dateTo.getTime() > appointment.dateto) ||
+                 dateTo.getTime() > closeDate.getTime()) {
                   this.times.splice(i, 1);
                   i--;
-                }
-              }
+            }
+          }
         })
 /*
         this.times.forEach((time, index) => {
