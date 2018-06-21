@@ -25,14 +25,6 @@ function getTimeRanges(openHour: number, closeHour: number, step: number, date: 
     if (currHour == 24) {
       currHour = 0;
     }
-  
-    if (currHour == closeHour) {
-      currHour < 10 ? currHourStr = "0" + currHour.toString() : currHourStr = currHour.toString();
-      currMinutes < 10 ? currMinutesStr = "0" + currMinutes.toString() : currMinutesStr = currMinutes.toString();
-      date.setHours(currHour, currMinutes);
-      timesArr.push({display: currHourStr + ":" + currMinutesStr, value: date.getTime()});
-      isDone = true;
-    }
   }
 
   return timesArr;
