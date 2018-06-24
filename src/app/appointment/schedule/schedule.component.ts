@@ -1,15 +1,19 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { AppointmentService } from '../appointment.service';
 
-const OPEN_HOUR = 9;
-const CLOSE_HOUR = 21;
+const OPEN_HOUR = "09:00";
+const CLOSE_HOUR = "21:00";
 const STEP = 10;
 
-function getTimeRanges(openHour: number, closeHour: number, step: number, date: Date): any[] {
+function getTimeRanges(openTime: string, closeTime: string, step: number, date: Date): any[] {
   let timesArr = [];
+  let closeMinute: number = parseInt(closeTime.split(':')[1]);
+  let closeHour: number = parseInt(closeTime.split(':')[0]);
+  let openHour: number = parseInt(openTime.split(':')[0]);
+  let openMinute: number = parseInt(openTime.split(':')[1]);
   let closeDate = new Date(date);
   let currHour: number = openHour;
-  let currMinutes: number = 0;
+  let currMinute: number = openMinute;
   let currMilliseconds;
   let currHourStr: string;
   let currMinutesStr: string;
@@ -17,13 +21,19 @@ function getTimeRanges(openHour: number, closeHour: number, step: number, date: 
 
   while(!isDone) {
     currHour < 10 ? currHourStr = "0" + currHour.toString() : currHourStr = currHour.toString();
-    currMinutes < 10 ? currMinutesStr = "0" + currMinutes.toString() : currMinutesStr = currMinutes.toString();
-    date.setHours(currHour, currMinutes);
+    currMinute < 10 ? currMinutesStr = "0" + currMinute.toString() : currMinutesStr = currMinute.toString();
+    date.setHours(currHour, currMinute);
     timesArr.push({display: currHourStr + ":" + currMinutesStr, value: date.getTime()});
-    currMinutes += step;
 
-    if (currMinutes >= 60) {
-      currMinutes = 0;
+    if(currHour === closeHour && currMinute === closeMinute) {
+      isDone = true;
+      break;
+    }
+
+    currMinute += step;
+
+    if (currMinute >= 60) {
+      currMinute = 0;
       currHour += 1;
     }
 
@@ -31,9 +41,7 @@ function getTimeRanges(openHour: number, closeHour: number, step: number, date: 
       currHour = 0;
     }
 
-    if(currHour == closeHour) {
-      isDone = true;
-    }
+
   }
 
   return timesArr;
@@ -81,18 +89,21 @@ export class ScheduleComponent implements OnInit {
     if (event && this.isValidDate()) {
       let closeDate = new Date(event);
 
-      closeDate.setHours(CLOSE_HOUR, 0);
+      closeDate.setHours(parseInt(CLOSE_HOUR.split(':')[0]), parseInt(CLOSE_HOUR.split(':')[1]));
+      closeDate.setMinutes(closeDate.getMinutes() - this.totalDuration);
+    
 
       this.appointmentService.get(event.getDate().toString() + "-" +
                                  (event.getMonth() + 1).toString() + "-" +
                                   event.getFullYear().toString()).subscribe((appointments) => {
-        this.times = getTimeRanges(OPEN_HOUR, CLOSE_HOUR, STEP, event);
+
+        this.times = getTimeRanges(OPEN_HOUR, closeDate.getHours().toString() + ":" + closeDate.getMinutes().toString(), STEP, event);
         
         appointments.forEach(appointment => {
           for (let i = 0; i < this.times.length; i++) {
             let dateTo = new Date(this.times[i].value);
             dateTo.setMinutes(dateTo.getMinutes() + this.totalDuration);
-            
+
             if ((this.times[i].value >= appointment.datefrom && this.times[i].value <= appointment.dateto) ||
                 (dateTo.getTime() > appointment.datefrom && dateTo.getTime() <= appointment.dateto) ||
                 (this.times[i].value < appointment.datefrom && dateTo.getTime() > appointment.dateto) ||
