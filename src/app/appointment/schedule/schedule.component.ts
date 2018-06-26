@@ -134,7 +134,7 @@ export class ScheduleComponent implements OnInit {
     const day = d.getDay();
     // Prevent Saturday and Sunday from being selected.
 
-    return day !== 6 && new Date() <= d;
+    return day !== 6 && new Date().getDate() <= d.getDate();
   }
 
   next() {
