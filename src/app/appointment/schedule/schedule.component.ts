@@ -6,6 +6,7 @@ const CLOSE_HOUR = "21:00";
 const STEP = 10;
 
 function getTimeRanges(openTime: string, closeTime: string, step: number, date: Date): any[] {
+
   let timesArr = [];
   let closeMinute: number = parseInt(closeTime.split(':')[1]);
   let closeHour: number = parseInt(closeTime.split(':')[0]);
@@ -23,12 +24,15 @@ function getTimeRanges(openTime: string, closeTime: string, step: number, date: 
     currHour < 10 ? currHourStr = "0" + currHour.toString() : currHourStr = currHour.toString();
     currMinute < 10 ? currMinutesStr = "0" + currMinute.toString() : currMinutesStr = currMinute.toString();
     date.setHours(currHour, currMinute);
-    timesArr.push({display: currHourStr + ":" + currMinutesStr, value: date.getTime()});
+    if (new Date().getTime() <= date.getTime()) {
+      timesArr.push({display: currHourStr + ":" + currMinutesStr, value: date.getTime()});
+    }
 
     if(currHour === closeHour && currMinute === closeMinute) {
       isDone = true;
       break;
     }
+
 
     currMinute += step;
 
