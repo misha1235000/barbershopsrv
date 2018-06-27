@@ -24,7 +24,7 @@ function getTimeRanges(openTime: string, closeTime: string, step: number, date: 
     currHour < 10 ? currHourStr = "0" + currHour.toString() : currHourStr = currHour.toString();
     currMinute < 10 ? currMinutesStr = "0" + currMinute.toString() : currMinutesStr = currMinute.toString();
     date.setHours(currHour, currMinute);
-    if (new Date().getTime() <= date.getTime()) {
+    if (new Date().getTime() < date.getTime()) {
       timesArr.push({display: currHourStr + ":" + currMinutesStr, value: date.getTime()});
     }
 
@@ -137,8 +137,7 @@ export class ScheduleComponent implements OnInit {
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
     // Prevent Saturday and Sunday from being selected.
-
-    return day !== 6 && new Date().getDate() <= d.getDate();
+    return (day !== 6 && (new Date().getDate() <= d.getDate() && new Date().getMonth() + 1 == d.getMonth() + 1  && new Date().getFullYear() == d.getFullYear()));
   }
 
   next() {

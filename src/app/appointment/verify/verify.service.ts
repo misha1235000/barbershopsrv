@@ -24,6 +24,15 @@ export class VerifyService {
            .map((res: Response) => {
               return res.json();
            }).catch((error) => {
+              return error.json().error;
+           });
+  }
+
+  isPhoneExist(phone): Observable<any> {
+    return this.http.post(this.serverUrl + '/exist', {'phone': phone})
+           .map((res: Response) => {
+             return res.json();
+           }).catch((error) => {
              return error.json().error;
            });
   }

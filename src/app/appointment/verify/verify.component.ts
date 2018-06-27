@@ -18,6 +18,7 @@ export class VerifyComponent implements OnInit {
   isVerify: boolean = false;
   isCode: boolean = false;
   isNameReq: boolean = false;
+  isPhone: boolean = false;
   resSendSMSData;
   resVerifyData;
 
@@ -31,9 +32,22 @@ export class VerifyComponent implements OnInit {
   ngOnChanges() {
   }
 
-  isValidPhone(): boolean {
+  isValidPhone(): void {
     let terms = /^05\d{8}$/;
-    return terms.test(this.phone);
+    if (terms.test(this.phone)) {
+      this.verifyService.isPhoneExist(this.phone).subscribe((data) => {
+        if (data.isExist) {
+          this.isNameReq = false;
+          this.isPhone = true;
+        } else {
+          this.isNameReq = true;
+          this.isPhone = false;
+        }
+      });
+    } else {
+      this.isNameReq = false;
+      this.isPhone = false;
+    }
   }
 
   sendSMS() {
