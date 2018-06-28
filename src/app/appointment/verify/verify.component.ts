@@ -67,6 +67,7 @@ export class VerifyComponent implements OnInit {
         this.isVerify = false;
       } else {
         this.errorSMS = ""
+        this.isNameReq = false;
         this.resSendSMSData = true;
       }
     }, (err) => {
