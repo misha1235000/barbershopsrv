@@ -136,8 +136,9 @@ export class ScheduleComponent implements OnInit {
 
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
+    let isValid: boolean = false;
     // Prevent Saturday and Sunday from being selected.
-    return (day !== 6 && (new Date().getDate() <= d.getDate() && new Date().getMonth() + 1 == d.getMonth() + 1  && new Date().getFullYear() == d.getFullYear()));
+    return ((d.getTime() >= new Date().getTime() && day !== 6) || (day !== 6 && d.getDate() == new Date().getDate() && d.getMonth() == new Date().getMonth() && d.getFullYear() == new Date().getFullYear()));
   }
 
   next() {
