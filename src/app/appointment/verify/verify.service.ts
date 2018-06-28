@@ -10,8 +10,8 @@ export class VerifyService {
 
   constructor(private http: Http){}
 
-  sendSMS(phone): Observable<any> {
-    return this.http.post(this.serverUrl + '/sms', {'phone': phone})
+  sendSMS(user): Observable<any> {
+    return this.http.post(this.serverUrl + '/sms', {'user': user})
            .map((res: Response) => {
               return res.json();
            }).catch((error) => {

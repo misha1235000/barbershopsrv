@@ -51,9 +51,9 @@ export class VerifyComponent implements OnInit {
   }
 
   sendSMS() {
-    
+    let user = {'name': this.fullname, 'phone': this.phone};
     this.isVerify = true;
-    this.verifyService.sendSMS(this.phone).subscribe((data) => {
+    this.verifyService.sendSMS(user).subscribe((data) => {
       if (typeof(data) == "string") {
         data = JSON.parse(data);
       }

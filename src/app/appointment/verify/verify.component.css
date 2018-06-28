@@ -34,11 +34,18 @@
 .verifyBtn {
     position: absolute;
     left: 10px;
-    bottom: 35%;
+    bottom: 55px;
 }
 
 .spinnerBtn {
     position: absolute;
     left: 20px;
     bottom: 40%;
+}
+
+.sendIcon {
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
 }
