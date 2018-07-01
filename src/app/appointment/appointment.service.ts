@@ -11,7 +11,7 @@ export class AppointmentService {
   constructor(private http: Http){}
   
   get(date): Observable<any> {
-    return this.http.get(this.serverUrl + '/appointment/' + date)
+    return this.http.get(this.serverUrl + '/appointment/date/' + date)
            .map((res: Response) => {
               return res.json();
            }).catch((error) => {
