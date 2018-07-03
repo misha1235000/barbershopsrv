@@ -20,10 +20,11 @@
     <div class="dateDiv">
       <mat-form-field class="example-full-width">
         <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="בחר תאריך" autocomplete="off" [(ngModel)]="dateSchedule" (ngModelChange)="filterValid($event)">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+        <button color="primary" mat-icon-button style="position:absolute; left:0px; bottom:0px;" (click)="loadMonth(picker)"><mat-icon>date_range</mat-icon></button>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <mat-icon class="date-icon" >date_range</mat-icon>
+      <mat-icon class="date-icon">date_range</mat-icon>
     </div>
   </mat-grid-tile>
   <mat-grid-tile colspan="2" rowspan="1" *ngIf="isValidDate(dateSchedule)">

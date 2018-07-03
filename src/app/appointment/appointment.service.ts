@@ -18,4 +18,13 @@ export class AppointmentService {
              return error.json().error;
            });;
   }
+
+  getByMonth(month): Observable<any> {
+    return this.http.get(this.serverUrl + '/appointment/month/' + month)
+           .map((res: Response) => {
+              return res.json();
+           }).catch((error) => {
+             return error.json().error;
+           });;
+  }
 }

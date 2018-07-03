@@ -166,4 +166,16 @@ export class ScheduleComponent implements OnInit {
     currMonth = currDate.getMonth() + 1
     return (this.dateSchedule instanceof Date && this.dateSchedule.getFullYear() >= currYear && this.dateSchedule.getMonth() + 1 >= currMonth);
   }
+
+  loadMonth(picker) {
+    let currMonth = (new Date().getMonth() + 1).toString() + "-" + (new Date().getFullYear()).toString();
+
+    this.appointmentService.getByMonth(currMonth).subscribe((appointments) => {
+      console.log(appointments);
+    });
+
+    picker.open();
+
+    
+  }
 }
