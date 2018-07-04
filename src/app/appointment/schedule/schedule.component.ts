@@ -6,7 +6,6 @@ const CLOSE_HOUR = "21:00";
 const STEP = 10;
 
 function getTimeRanges(openTime: string, closeTime: string, step: number, date: Date): any[] {
-
   let timesArr = [];
   let closeMinute: number = parseInt(closeTime.split(':')[1]);
   let closeHour: number = parseInt(closeTime.split(':')[0]);
@@ -18,6 +17,7 @@ function getTimeRanges(openTime: string, closeTime: string, step: number, date: 
   let currMilliseconds;
   let currHourStr: string;
   let currMinutesStr: string;
+  let test;
   let isDone: boolean = false;
 
   while(!isDone) {
@@ -167,7 +167,8 @@ export class ScheduleComponent implements OnInit {
     return (this.dateSchedule instanceof Date && this.dateSchedule.getFullYear() >= currYear && this.dateSchedule.getMonth() + 1 >= currMonth);
   }
 
-  loadMonth(picker) {
+  loadMonth(picker, test) {
+    console.log(picker);
     let currMonth = (new Date().getMonth() + 1).toString() + "-" + (new Date().getFullYear()).toString();
 
     this.appointmentService.getByMonth(currMonth).subscribe((appointments) => {
@@ -176,6 +177,10 @@ export class ScheduleComponent implements OnInit {
 
     picker.open();
 
-    
+    console.log(test);
+  }
+
+  abcdefg(boom) {
+    console.log(boom);
   }
 }
