@@ -21,7 +21,7 @@
       <mat-form-field class="example-full-width">
         <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="בחר תאריך" autocomplete="off" [(ngModel)]="dateSchedule" (ngModelChange)="filterValid($event)">
         <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
-        <button color="primary" mat-icon-button style="position:absolute; left:0px; bottom:0px;" (click)="loadMonth(picker)"><mat-icon>date_range</mat-icon></button>
+        <button color="primary" mat-icon-button style="position:absolute; left:0px; bottom:0px;" (click)="loadMonth(picker)"><mat-icon>event</mat-icon></button>
       <mat-datepicker #picker>
       </mat-datepicker>
       <!--  <mat-datepicker #picker (selectedChange)="abcdefg($event)"></mat-datepicker>-->

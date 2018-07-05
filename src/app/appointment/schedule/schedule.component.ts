@@ -180,7 +180,7 @@ export class ScheduleComponent implements OnInit {
     console.log(test);
   }
 
-  abcdefg(boom) {
-    console.log(boom);
+  getChangedValue(event) {
+    console.log(event);
   }
 }
