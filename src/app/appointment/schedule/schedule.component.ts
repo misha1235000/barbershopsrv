@@ -61,6 +61,7 @@ export class ScheduleComponent implements OnInit {
   @Input() types = [];
   @Input() currSelectedTab;
   @Output() scheduleOutside = new EventEmitter<any>();
+  @Output('opened') openedStream = new EventEmitter<void>();
   
 
   dateSchedule: any;
@@ -137,7 +138,7 @@ export class ScheduleComponent implements OnInit {
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
     let isValid: boolean = false;
-    // Prevent Saturday and Sunday from being selected.
+    // Prevent Saturday from being selected.
     return ((d.getTime() >= new Date().getTime() && day !== 6) || (day !== 6 && d.getDate() == new Date().getDate() && d.getMonth() == new Date().getMonth() && d.getFullYear() == new Date().getFullYear()));
   }
 

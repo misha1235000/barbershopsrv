@@ -6,7 +6,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatListModule, MatTableModule, MatButtonModule, MatToolbarModule, MatIconModule,
          MatSidenavModule, MatStepperModule, MatFormFieldModule, MatTooltipModule, MatDialogModule, MatInputModule,
-         MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatExpansionModule, MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule} from '@angular/material';
+         MatDatepickerModule, MatNativeDateModule, MatSelectModule, MatExpansionModule, MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule, MatCalendar} from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -74,7 +74,7 @@ const appRoutes: Routes = [
     MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule, MatProgressSpinnerModule
   ],
   entryComponents: [AddAppointmentComponent, ImageProductComponent],
-  providers: [AppointmentTypeService, AppointmentService, ProductService, VerifyService],
+  providers: [AppointmentTypeService, AppointmentService, ProductService, VerifyService, MatCalendar],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
