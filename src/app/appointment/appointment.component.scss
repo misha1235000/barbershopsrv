@@ -1,0 +1,62 @@
+.cards {
+    height: 450px;
+    margin:50px 50px 50px 50px;
+    width:100%;
+    
+    background-color:transparent;
+}
+
+.main-card {
+    display: flex;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.header-text {
+    text-align:right;
+    font-size: 22px;
+}
+
+.typeText {
+    flex:25%;
+    color: white;
+    text-align: center;
+    padding:5px;
+    border-bottom:solid 1px rgba(0,0,0,0.2);
+}
+
+.dateText {
+    flex:25%;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding:5px;
+    border-bottom:solid 1px rgba(0,0,0,0.2);
+}
+
+.verifyText {
+    flex:25%;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding:5px;
+    border-bottom:solid 1px rgba(0,0,0,0.2);
+}
+
+.finishText {
+    flex:25%;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding:5px;
+    border-bottom:solid 1px rgba(0,0,0,0.2);
+}
+
+.paddingDiv {
+    padding: 10px 50px 0 50px;
+    width:100%;
+    font-family:arial;
+}
+
+.stepperDiv {
+    text-align: center;
+}
