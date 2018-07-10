@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AppointmentTypeService } from './type-list.service';
 
-
 @Component({
   selector: 'app-type-list',
   templateUrl: './type-list.component.html',
@@ -10,11 +9,16 @@ import { AppointmentTypeService } from './type-list.service';
 export class TypeListComponent implements OnInit {
   @Output() checkedTypesOutside = new EventEmitter<any>();
   @Output() isChecked = new EventEmitter<boolean>();
-  appointmentTypes = [];
-  checkedTypes = [];
+
+  appointmentTypes: any = [];
+  checkedTypes: any = [];
   
+  // Injection of the appointment service.
   constructor(private appointmentService: AppointmentTypeService) { }
 
+  /**
+   *  When the component inits, get all the appointment types.
+   */
   ngOnInit() {
     this.appointmentService.get().subscribe((appointmentTypes) => {
       appointmentTypes.forEach(type => {
@@ -27,6 +31,10 @@ export class TypeListComponent implements OnInit {
     });
   }
 
+  /**
+   * Handles the type list.
+   * @param type 
+   */
   handleTypeList(type) {
     let isFound: Boolean = false;
 
@@ -41,10 +49,14 @@ export class TypeListComponent implements OnInit {
     this.checkedTypes.push(type);
   }
 
+  /**
+   * When a type is checked, emit to the appointment whether something is checked
+   */
   onCheck() {
     this.isChecked.emit(this.checkedTypes.length > 0 ? true : false);
   }
 
+  // When next is pressed, emit the type list chosen to the appointment.
   next() {
     this.checkedTypesOutside.emit(this.checkedTypes);
   }

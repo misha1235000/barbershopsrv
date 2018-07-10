@@ -10,6 +10,9 @@ export class AppointmentTypeService {
 
   constructor(private http: Http){}
   
+  /**
+   * Sends http request to get all the type-lists
+   */
   get(): Observable<any> {
     return this.http.get(this.serverUrl + '/type')
            .map((res: Response) => {
