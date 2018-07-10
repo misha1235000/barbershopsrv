@@ -17,7 +17,6 @@ import { AppointmentService } from './appointment/appointment.service';
 import { AppointmentTypeService } from './appointment/type/type-list.service';
 import { ProductService } from './products/product.service';
 import { VerifyService } from './appointment/verify/verify.service';
-import { AddAppointmentComponent } from './appointment/add-appointment/add-appointment.component';
 import { MaincontentComponent } from './maincontent/maincontent.component';
 import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -45,7 +44,6 @@ const appRoutes: Routes = [
     SidenavComponent,
     AppointmentComponent,
     TypeListComponent,
-    AddAppointmentComponent,
     MaincontentComponent,
     ProductsComponent,
     PageNotFoundComponent,
@@ -73,7 +71,7 @@ const appRoutes: Routes = [
     MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSelectModule, MatExpansionModule,
     MatDividerModule, MatCheckboxModule, MatTabsModule, MatGridListModule, MatProgressSpinnerModule
   ],
-  entryComponents: [AddAppointmentComponent, ImageProductComponent],
+  entryComponents: [ImageProductComponent],
   providers: [AppointmentTypeService, AppointmentService, ProductService, VerifyService, MatCalendar],
   bootstrap: [AppComponent]
 })
