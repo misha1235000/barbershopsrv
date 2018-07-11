@@ -4,7 +4,7 @@ import { VerifyService } from './verify.service';
 @Component({
   selector: 'app-verify',
   templateUrl: './verify.component.html',
-  styleUrls: ['./verify.component.css']
+  styleUrls: ['./verify.component.scss']
 })
 export class VerifyComponent implements OnInit {
   @Input() appointmentScheduled;

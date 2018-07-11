@@ -126,7 +126,7 @@ export class ScheduleComponent implements OnInit {
    * to the appointment on a specific date
    * @param event 
    */
-  filterValid(event) {
+  filterValid(event): void {
     if (event && this.isValidDate()) {
       let closeDate = new Date(event);
 
@@ -174,7 +174,7 @@ export class ScheduleComponent implements OnInit {
   /**
    * 
    */
-  next() {
+  next(): void {
     let time: string[] = this.timeSchedule.display.split(':');
     let dateMilliseconds: number;
     let dateMillisecondsTo: number;
@@ -190,9 +190,9 @@ export class ScheduleComponent implements OnInit {
   }
 
   /**
-   * 
+   * Checks if the date is valid or not
    */
-  isValidDate() {
+  isValidDate(): boolean {
     let currDate = new Date();
     let currYear: number = currDate.getFullYear();
     let currMonth: number = currDate.getMonth() + 1;
