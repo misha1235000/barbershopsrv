@@ -28,8 +28,6 @@ toolbar-row {
     height:70px;
     border-radius: 100%;
     background-color:#DADADA;
-    /*position:relative;
-    left:80px;*/
 }
 
 .person-icon {
@@ -52,4 +50,8 @@ toolbar-row {
     position: relative;
     left:50px;
     top:100px;
+}
+
+.toolbar-main {
+    color:white;
 }
