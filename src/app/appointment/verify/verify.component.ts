@@ -1,3 +1,5 @@
+// verify.component
+
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { VerifyService } from './verify.service';
 
