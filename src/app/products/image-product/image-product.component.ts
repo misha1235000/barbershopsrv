@@ -1,27 +1,32 @@
+// image-product.component
+
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-image-product',
   templateUrl: './image-product.component.html',
-  styleUrls: ['./image-product.component.css']
+  styleUrls: ['./image-product.component.scss']
 })
 
 export class ImageProductComponent implements OnInit {
   image;
 
-  constructor(public dialogRef: MatDialogRef<ImageProductComponent>,
-  @Inject(MAT_DIALOG_DATA) public data: any) {
+  /**
+   * The injection of the dialog reference for the material design, and the DATA (Image).
+   * @param dialogRef 
+   * @param data 
+   */
+  constructor(public dialogRef: MatDialogRef<ImageProductComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.image = data.image;
    }
 
+   /**
+    * Closes the Dialog.
+    */
   CloseImage(): void {
     this.dialogRef.close();
   }
 
-
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }
