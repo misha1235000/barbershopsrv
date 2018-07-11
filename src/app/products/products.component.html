@@ -1,6 +1,6 @@
-<div class="productsText" style="position:relative; right:-2px;">
+<div class="productsText">
   <h1 class="titleText">המוצרים שלנו</h1>
-  <div style="display:flex; flex-wrap: wrap; margin-right:17px; margin-top:80px;">
+  <div class="content-div">
       <mat-card class="productCard" *ngFor="let product of productsSource">
         <div class="imageBackground">
           <img class="productImage" [src]="product.image" (click)="openDialog(product.image)">
@@ -9,9 +9,8 @@
           <div class="productPrice">{{ product.price }} ש"ח</div>
           <div class="productDesc">{{ product.desc }}</div>
           <button mat-icon-button color="primary" class="buyBtn"><mat-icon class="buyIcon">add_shopping_cart</mat-icon></button>
-          <button mat-icon-button class="viewBtn" (click)="openDialog(product.image)"><mat-icon style="color: #BABABA; font-size:18px">remove_red_eye</mat-icon></button>
+          <button mat-icon-button class="viewBtn" (click)="openDialog(product.image)"><mat-icon class="icon-class">remove_red_eye</mat-icon></button>
         </div>
       </mat-card>
   </div>
 </div>
-

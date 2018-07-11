@@ -8,8 +8,15 @@ import 'rxjs/add/operator/catch';
 export class ProductService {
   private serverUrl = "http://localhost:3000/api";
 
+  /**
+   * Injects the http service.
+   * @param http 
+   */
   constructor(private http: Http){}
   
+  /**
+   * Sends http get request to get products from the server.
+   */
   get(): Observable<any> {
     return this.http.get(this.serverUrl + '/product')
            .map((res: Response) => {
