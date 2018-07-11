@@ -12,8 +12,8 @@
       <mat-icon class="date-icon" *ngIf="!resSendSMSData">phone</mat-icon>
       <mat-icon class="date-icon" *ngIf="resSendSMSData">lock</mat-icon>
       <br>
-      <span style="font-size:13px; color:red;">{{errorVerify}}</span>
-      <span style="font-size:13px; color:red;">{{errorSMS}}</span>
+      <span class="error-msg">{{errorVerify}}</span>
+      <span class="error-msg">{{errorSMS}}</span>
       <div *ngIf="isNameReq">
         <mat-form-field>
           <input matInput placeholder="שם מלא" autocomplete="off" [(ngModel)]="fullname">

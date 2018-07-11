@@ -11,28 +11,31 @@ export class VerifyComponent implements OnInit {
   @Output() finished = new EventEmitter<any>();
 
   fullname = "";
-  phone: string = "";
-  errorSMS;
-  errorVerify;
-  code: string = "";
-  isVerify: boolean = false;
-  isCode: boolean = false;
-  isNameReq: boolean = false;
-  isPhone: boolean = false;
-  resSendSMSData;
-  resVerifyData;
+  phone = "";
+  errorSMS: string;
+  errorVerify: string;
+  code = "";
+  isVerify = false;
+  isCode = false;
+  isNameReq = false;
+  isPhone = false;
+  resSendSMSData: boolean;
+  resVerifyData: any;
   request_id = "";
 
-
+  /**
+   * Inject the verify service.
+   * @param verifyService 
+   */
   constructor(private verifyService: VerifyService) { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
-  ngOnChanges() {
-  }
+  ngOnChanges() {}
 
+  /**
+   * Checks if the phone syntax is valid.
+   */
   isValidPhone(): void {
     let terms = /^05\d{8}$/;
     if (terms.test(this.phone)) {
@@ -51,33 +54,35 @@ export class VerifyComponent implements OnInit {
     }
   }
 
-  sendSMS() {
+  /**
+   * Sends a verification SMS to a specific phone.
+   */
+  sendSMS(): void {
     let user = {'name': this.fullname, 'phone': this.phone};
     this.isVerify = true;
     this.verifyService.sendSMS(user).subscribe((data) => {
-      if (typeof(data) == "string") {
+      if (typeof(data) == "string") { // If the data returns as string, parse it to json.
         data = JSON.parse(data);
       }
 
-      if(data.error_text && data.status == "100") {
-        this.errorSMS = "";
-        this.isNameReq = true;
-        this.isVerify = false;
-      } else if (data.error_text && data.status != "10") {
+      if (data.error_text && data.status != "10") { // If the data returns error and the status is not 10 show an Error.
         this.errorSMS = data.error_text;
         this.isVerify = false;
-      } else {
+      } else { // If no errors appeared.
         this.errorSMS = ""
         this.isNameReq = false;
         this.request_id = data.request_id;
-        this.resSendSMSData = true;//7031
+        this.resSendSMSData = true;
       }
     }, (err) => {
       console.log(err);
     });
   }
 
-  verifyCode() {
+  /**
+   * Verification of the code that was sent before.
+   */
+  verifyCode(): void {
     let newDate = new Date(this.appointmentScheduled.date);
     let appointment = {'datefrom': this.appointmentScheduled.date,
                        'dateto': this.appointmentScheduled.dateto,
@@ -87,29 +92,25 @@ export class VerifyComponent implements OnInit {
                        'ownerPhone': this.phone ,'types':this.appointmentScheduled.types};
     let user = {'name': this.fullname, 'phone': this.phone};
 
-
     this.isCode = true;
     this.verifyService.verifyCode(this.code, this.request_id, appointment, user).subscribe((data) => {
-      if (typeof(data) == "string") {
+      if (typeof(data) == "string") { // If the data returns as string, parse it to json.
         data = JSON.parse(data);
       }
       
-      if (data.error_text || !data.success) {
+      if (data.error_text || !data.success) { // If the data has an error or it didnt success show the error.
         this.errorVerify = data.error_text;
         this.isCode = false;
-        console.log(data);
       } else {
         this.errorVerify = "";
-        if (data.success) {
+
+        if (data.success) { // If data.success exists emit that it was verified.
           this.resVerifyData = data;
           this.finished.emit();
         }
       }
-      console.log(data);
     }, (err) => {
       console.log(err);
     });
-    
-
   }
 }
