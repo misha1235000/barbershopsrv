@@ -82,7 +82,7 @@ function getTimeRanges(openTime: string, closeTime: string, step: number, date: 
 
 export class ScheduleComponent implements OnInit {
   @Input() types = [];
-//@Input() currSelectedTab;
+  @Input() currSelectedTab;
   @Output() scheduleOutside = new EventEmitter<any>();
   @Output('opened') openedStream = new EventEmitter<void>();
   

@@ -3,7 +3,7 @@
     <div class="stepperDiv">
       <mat-tab-group dir="ltr" [selectedIndex]="selectedTab" (selectedIndexChange)="isNextDisable($event)">
         <mat-tab label="סיים" disabled="true" [disabled]="!isFinished">
-          פה סיום
+          <app-finish></app-finish>
         </mat-tab>
         <mat-tab label="הזדהות" [disabled]="!isSchedule">
           <app-verify [appointmentScheduled]="appointmentParent" (finished)="selectedTab = 0; isSchedule = false; isTypes = false; isFirst = false; isFinished = true;"></app-verify>

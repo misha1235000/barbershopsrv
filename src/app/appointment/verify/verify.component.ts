@@ -59,9 +59,14 @@ export class VerifyComponent implements OnInit {
   /**
    * Sends a verification SMS to a specific phone.
    */
-  sendSMS(): void {
+   sendSMS(): void {
     let user = {'name': this.fullname, 'phone': this.phone};
     this.isVerify = true;
+    this.errorSMS = ""
+    this.isNameReq = false;
+    this.request_id = "1bfbsoisagosh";
+    this.resSendSMSData = true;
+    /*
     this.verifyService.sendSMS(user).subscribe((data) => {
       if (typeof(data) == "string") { // If the data returns as string, parse it to json.
         data = JSON.parse(data);
@@ -79,13 +84,13 @@ export class VerifyComponent implements OnInit {
     }, (err) => {
       console.log(err);
     });
+    */
   }
 
   /**
    * Verification of the code that was sent before.
    */
   verifyCode(): void {
-    let newDate = new Date(this.appointmentScheduled.date);
     let appointment = {'datefrom': this.appointmentScheduled.date,
                        'dateto': this.appointmentScheduled.dateto,
                        'dateFilter': new Date(this.appointmentScheduled.date).getDate().toString() + "-" +
@@ -95,6 +100,9 @@ export class VerifyComponent implements OnInit {
     let user = {'name': this.fullname, 'phone': this.phone};
 
     this.isCode = true;
+    this.resVerifyData = true;
+    this.finished.emit();
+    /*
     this.verifyService.verifyCode(this.code, this.request_id, appointment, user).subscribe((data) => {
       if (typeof(data) == "string") { // If the data returns as string, parse it to json.
         data = JSON.parse(data);
@@ -113,6 +121,6 @@ export class VerifyComponent implements OnInit {
       }
     }, (err) => {
       console.log(err);
-    });
+    });*/
   }
 }

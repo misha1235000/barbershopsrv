@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { ImageProductComponent } from './products/image-product/image-product.component';
 import { ScheduleComponent } from './appointment/schedule/schedule.component';
 import { VerifyComponent } from './appointment/verify/verify.component';
+import { FinishComponent } from './appointment/finish/finish.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     HomeComponent,
     ImageProductComponent,
     ScheduleComponent,
-    VerifyComponent
+    VerifyComponent,
+    FinishComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class VerifyService {
-  private serverUrl = "http://localhost:3000/api";
+  private serverUrl = "http://localhost:3000/api/auth";
 
   /**
    * Injection of the http service.
@@ -21,7 +21,7 @@ export class VerifyService {
    * @param user - The user to send the SMS to
    */
   sendSMS(user): Observable<any> {
-    return this.http.post(this.serverUrl + '/sms', {'user': user})
+    return this.http.post(this.serverUrl, {'user': user})
            .map((res: Response) => {
               return res.json();
            }).catch((error) => {
