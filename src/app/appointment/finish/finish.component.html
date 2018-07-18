@@ -1,0 +1,15 @@
+<mat-card class="">
+    <h5 class="products-header">נקבע תור חדש</h5>
+    <mat-divider></mat-divider>
+    <mat-list>
+      <mat-list-item *ngFor="let type of types">
+        <img class="avatarImage" [src]="type.image" width="50" height="50">
+        <h3 mat-line class="type-title">{{type.title}}</h3>
+        <h4 dir="rtl" mat-line>{{type.price}} שקלים | {{type.duration}} דקות</h4>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <div class="products-body">
+        <h1 mat-line dir="rtl" style="font-size:20px"><mat-icon class="icon-payment">payment</mat-icon>{{totalPrice}} ש"ח</h1>
+      </div>
+    </mat-list>
+  </mat-card>

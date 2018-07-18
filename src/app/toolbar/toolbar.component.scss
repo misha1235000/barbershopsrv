@@ -1,0 +1,73 @@
+.toolbar-icon {
+  padding: 0 5px;
+  font-size:25px;
+  position:relative;
+  top: 3px;
+}
+
+mat-toolbar {
+    background-color: black;
+    color:white;
+    height:200px;
+}
+
+.login-class {
+    cursor: pointer;
+}
+
+.btnToolbar {
+  position:relative;
+  top:25px;
+  font-size:14px;
+  border-top:solid 1px white;
+  margin:5px;
+  color: white;
+  text-decoration: none;
+  flex:15%;
+}
+
+.btnToolbar:hover {
+  position:relative;
+  top:22px;
+  border-top:solid 4px white;
+  cursor:pointer;
+}
+
+.active {
+  color: rgba(204, 77, 77, 1);
+  border-top: solid 4px rgba(204, 77, 77, 1);
+}
+
+.active:hover {
+  cursor:pointer;
+  border-top: solid 4px rgba(204, 77, 77, 1);
+  position:relative;
+  top:25px;
+}
+
+.content-header-div {
+  flex:15%;
+  margin:7px;
+}
+
+.content-header-span {
+  font-size:28px;
+  margin:5px;
+}
+
+.content-sub-span {
+  font-size:16px;
+}
+
+.empty-div {
+  flex:25%;
+}
+
+.content-div {
+  flex:50%;
+  text-align:center;
+}
+
+.flex-div {
+  display: flex;
+}
