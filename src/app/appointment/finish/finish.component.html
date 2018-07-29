@@ -1,6 +1,5 @@
 <mat-card class="">
-    <h5 class="products-header">נקבע תור חדש</h5>
-    <mat-icon class="icon-header">check</mat-icon>
+    <h5 class="products-header">נקבע תור חדש<mat-icon class="icon-header">check</mat-icon></h5>
     <mat-divider></mat-divider>
     <mat-list>
       <mat-list-item *ngFor="let type of types">
@@ -11,6 +10,7 @@
       </mat-list-item>
       <div class="products-body">
         <h1 mat-line dir="rtl" style="font-size:20px"><mat-icon class="icon-payment">payment</mat-icon>{{totalPrice}} ש"ח</h1>
+        <h1 mat-line dir="rtl" style="font-size:20px"><mat-icon class="icon-payment">access_time</mat-icon>{{totalDuration}} דקות</h1>
       </div>
     </mat-list>
   </mat-card>

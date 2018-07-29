@@ -1,11 +1,18 @@
 .products-header {
-
+    position: relative;
+    bottom: 7px;
 }
 
 .icon-header {
-    font-size:30px;
-    position:absolute;
-    right:40px;
-    top:17px;
+    font-size:25px;
     color: #81C784;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.icon-payment {
+    position:relative;
+    top: 4px;
+    left: 10px;
 }

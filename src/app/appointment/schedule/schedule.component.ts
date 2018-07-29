@@ -186,7 +186,7 @@ export class ScheduleComponent implements OnInit {
     dateScheduleTo.setMinutes(this.dateSchedule.getMinutes() + this.totalDuration);
     dateMillisecondsTo = dateScheduleTo.getTime();
 
-    this.scheduleOutside.emit({'date': dateMilliseconds,  'dateto': dateMillisecondsTo, 'types': this.types.map(type => type._id)});
+    this.scheduleOutside.emit({'date': dateMilliseconds,  'dateto': dateMillisecondsTo, 'types': this.types, 'price': this.totalPrice, 'duration': this.totalDuration});
   }
 
   /**

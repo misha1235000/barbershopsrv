@@ -6,12 +6,19 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./finish.component.scss']
 })
 export class FinishComponent implements OnInit {
-  @Input() types;
   @Input() price;
+  @Input() appointmentScheduled;
+
+  types;
+  totalPrice: number;
+  totalDuration: number;
 
   constructor() { }
 
   ngOnInit() {
+    this.types = this.appointmentScheduled.types;
+    this.totalPrice = this.appointmentScheduled.price;
+    this.totalDuration = this.appointmentScheduled.duration;
   }
 
 }
